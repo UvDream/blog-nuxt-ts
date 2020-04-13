@@ -1,7 +1,6 @@
 <template>
   <div class="container">
     <div>
-      <logo />
       <h1 class="title">
         blog-nuxt-ts
       </h1>
@@ -24,10 +23,8 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
 export default {
   components: {
-    Logo
   }
 }
 </script>
