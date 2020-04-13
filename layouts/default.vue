@@ -1,9 +1,17 @@
 <template>
   <div>
+    <JMenus />
     <nuxt />
   </div>
 </template>
-
+<script>
+import JMenus from '../components/menus/index'
+export default {
+  components: {
+    JMenus
+  }
+}
+</script>
 <style>
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
