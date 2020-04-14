@@ -1,25 +1,24 @@
 <template>
   <div class="main">
-    <Row>
-      <Col :xs="2" :sm="4" :md="6" :lg="8">
-        1
+    <Row type="flex" justify="center">
+      <Col :xs="24" :sm="24" :md="16" :lg="18" :xl="14">1</Col>
+      <Col :xs="0" :sm="0" :md="7" :lg="5" :xl="4">
+        <JAuth />
       </Col>
-      <Col :xs="20" :sm="16" :md="12" :lg="8">
-        2
-      </Col>
-      <Col :xs="2" :sm="4" :md="6" :lg="8"> 3</Col>
     </Row>
   </div>
 </template>
 
 <script>
+import JAuth from "../components/auth/index";
 export default {
-  components: {}
+  components: { JAuth }
 };
 </script>
 
 <style lang="less" scoped>
 .main {
+  background-color: #f5f5f5;
   width: 100%;
   outline: 1px solid red;
   &-row {
