@@ -2,11 +2,19 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-14 13:56:51
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-14 14:34:12
+ * @LastEditTime: 2020-04-14 15:08:23
  * @Description:配置文件
  * @Email: UvDream@163.com
  */
 let iconfontVersion = ["1753589_blimur81ap6"];
 let iconfontUrl = `//at.alicdn.com/t/font_$key.css`;
-
-export { iconfontUrl, iconfontVersion };
+let baseUrl = "",
+  imgUrl = "";
+if (process.env.NODE_ENV == "development") {
+  baseUrl = `http://localhost:8000`; //开发环境地址
+  imgUrl = `http://localhost:3001`;
+} else if (process.env.NODE_ENV == "production") {
+  baseUrl = `http://118.25.110.93:8000`; //生产环境地址
+  imgUrl = `http://118.25.110.93`;
+}
+export { iconfontUrl, iconfontVersion, baseUrl, imgUrl };
