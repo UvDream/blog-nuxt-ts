@@ -2,13 +2,13 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-14 11:09:01
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-15 14:22:16
+ * @LastEditTime: 2020-04-15 22:01:10
  * @Description: 底部
  * @Email: UvDream@163.com
  -->
 <template>
   <div class="footer">
-    <div>系统由Golang+Nuxt.js+iview驱动 By wangzhongjie</div>
+    <div>系统由Golang+Nuxt.js+Typescript+iview驱动 By wangzhongjie</div>
     <div>
       苏ICP备20016784
     </div>
