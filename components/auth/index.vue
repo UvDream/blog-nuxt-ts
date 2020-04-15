@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-14 11:21:23
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-14 14:28:28
+ * @LastEditTime: 2020-04-15 14:10:14
  * @Description: 信息栏
  * @Email: UvDream@163.com
  -->
@@ -53,10 +53,11 @@ export default {
 </script>
 
 <style scoped lang="less">
+@import url("../../styles/theme.less");
 .auth {
   text-align: center;
   width: 100%;
-  background-color: #fff;
+  background-color: var(--bgColor);
   border-radius: 8px;
   box-shadow: 0 0 1rem rgba(161, 177, 204, 0.4);
   padding: 20px;
@@ -76,7 +77,7 @@ export default {
     align-items: center;
     margin: 0 10px;
     & > span {
-      color: #999;
+      color: var(--textColor);
       &:hover {
         color: #2d8cf0;
       }

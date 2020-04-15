@@ -2,11 +2,11 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-14 13:56:51
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-14 15:08:23
+ * @LastEditTime: 2020-04-15 14:31:42
  * @Description:配置文件
  * @Email: UvDream@163.com
  */
-let iconfontVersion = ["1753589_blimur81ap6"];
+let iconfontVersion = ["1753589_tyy19yqqtv"];
 let iconfontUrl = `//at.alicdn.com/t/font_$key.css`;
 let baseUrl = "",
   imgUrl = "";

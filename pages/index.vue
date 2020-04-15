@@ -17,10 +17,11 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import url("../styles/theme.less");
+
 .main {
-  background-color: #f5f5f5;
+  background-color: var(--grayBgColor);
   width: 100%;
-  outline: 1px solid red;
   &-row {
     outline: 1px solid orange;
   }
