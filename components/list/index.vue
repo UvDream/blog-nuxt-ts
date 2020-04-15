@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-15 20:21:18
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-15 21:53:18
+ * @LastEditTime: 2020-04-15 21:59:25
  * @Description: 列表页面
  * @Email: UvDream@163.com
  -->
@@ -70,7 +70,7 @@ export default Vue.extend({
   &-title {
     font-size: 1.3rem;
     color: #1e90ff;
-    padding: 0.5rem;
+    padding: 0 0 0.5rem 0.5rem;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
