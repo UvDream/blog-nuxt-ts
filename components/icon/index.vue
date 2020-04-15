@@ -2,18 +2,16 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-14 14:19:32
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-14 14:30:55
+ * @LastEditTime: 2020-04-15 21:33:54
  * @Description: icon
  * @Email: UvDream@163.com
  -->
 <template>
-  <div>
-    <span
-      class="icon iconfont"
-      :class="type"
-      :style="{ fontSize: size + 'px', color: color }"
-    ></span>
-  </div>
+  <span
+    class="icon iconfont"
+    :class="type"
+    :style="{ fontSize: size + 'px', color: color }"
+  ></span>
 </template>
 
 <script lang="ts">
