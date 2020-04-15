@@ -1,7 +1,7 @@
 <template>
   <div class="main">
-    <Row type="flex" justify="center" gutter="10">
-      <Col :xs="24" :sm="24" :md="16" :lg="18" :xl="14">
+    <Row type="flex" justify="center">
+      <Col :xs="24" :sm="24" :md="16" :lg="18" :xl="14" class="main-list">
         <JList v-for="(item, index) in list" :key="index" :data="item" />
       </Col>
       <Col :xs="0" :sm="0" :md="7" :lg="5" :xl="4">
@@ -49,8 +49,8 @@ export default Vue.extend({
 .main {
   background-color: var(--grayBgColor);
   width: 100%;
-  &-row {
-    outline: 1px solid orange;
+  &-list {
+    padding: 0 0.5rem;
   }
 }
 </style>

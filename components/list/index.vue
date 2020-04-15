@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-15 20:21:18
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-15 21:37:08
+ * @LastEditTime: 2020-04-15 21:53:18
  * @Description: 列表页面
  * @Email: UvDream@163.com
  -->
@@ -66,10 +66,14 @@ export default Vue.extend({
   user-select: none;
   box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12),
     0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  padding: 0.5rem;
   &-title {
     font-size: 1.3rem;
     color: #1e90ff;
-    padding: 0 0.5rem;
+    padding: 0.5rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
   &-tag {
     display: flex;
