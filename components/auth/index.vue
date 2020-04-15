@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-14 11:21:23
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-15 14:10:14
+ * @LastEditTime: 2020-04-15 16:46:33
  * @Description: 信息栏
  * @Email: UvDream@163.com
  -->
@@ -10,7 +10,8 @@
   <div class="auth">
     <img src="http://118.25.110.93:81/images/avatar.jpeg" alt />
     <div>让技术产生价值</div>
-    <Divider>社交账号</Divider>
+    <!-- <Divider>社交账号</Divider> -->
+    <j-divider>社交账号</j-divider>
     <div class="auth-socializing">
       <Tooltip content="https://github.com/uvdream" theme="light">
         <a
@@ -38,6 +39,7 @@
 
 <script>
 import JIcon from "../icon/index";
+import JDivider from "../divider/index";
 export default {
   props: {},
   data() {
@@ -48,7 +50,7 @@ export default {
   mounted() {},
   watch: {},
   methods: {},
-  components: { JIcon }
+  components: { JIcon, JDivider }
 };
 </script>
 
@@ -58,9 +60,12 @@ export default {
   text-align: center;
   width: 100%;
   background-color: var(--bgColor);
-  border-radius: 8px;
+  border-radius: 10px;
   box-shadow: 0 0 1rem rgba(161, 177, 204, 0.4);
   padding: 20px;
+  color: var(--textColor);
+  border: 1px solid var(--borderColor);
+  font-size: 16px;
   img {
     width: 100px;
     height: 100px;
