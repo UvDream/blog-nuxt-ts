@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 16:18:32
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-16 16:33:04
+ * @LastEditTime: 2020-04-16 16:46:19
  * @Description: 
  * @Email: UvDream@163.com
  -->
@@ -39,15 +39,7 @@
       </Col>
       <Col :xs="0" :sm="0" :md="7" :lg="5" :xl="4">
         <JAuth />
-        <Anchor>
-          <AnchorLink href="#basic_usage" title="Basic Usage" />
-          <AnchorLink href="#static_position" title="Static Position" />
-          <AnchorLink href="#API" title="API">
-            <AnchorLink href="#Anchor_props" title="Anchor props" />
-            <AnchorLink href="#排序后去重" title="排序后去重" />
-            <AnchorLink href="#AnchorLink_props" title="AnchorLink props" />
-          </AnchorLink>
-        </Anchor>
+       <JAnchor :data="title" />
       </Col>
     </Row>
   </div>
@@ -58,6 +50,7 @@ import Vue from "vue";
 import JAuth from "../../components/auth/index.vue";
 import Article from "../../api/article/index";
 import JIcon from "../../components/icon/index.vue";
+import JAnchor from "../../components/title-anchor/index.vue"
 const JMark = () =>
   import("../../components/vditor/index.vue").then(m => m.default);
 export default Vue.extend({
@@ -77,7 +70,8 @@ export default Vue.extend({
     this.form.id = String(this.$route.params.id);
     this.getDetail(this.form);
   },
-  watch: {},
+  watch: {
+  },
   methods: {
     getDetail(data: Object) {
       Article.detail(data).then(res => {
@@ -88,7 +82,8 @@ export default Vue.extend({
   components: {
     JAuth,
     JIcon,
-    JMark
+    JMark,
+    JAnchor
   }
 });
 </script>

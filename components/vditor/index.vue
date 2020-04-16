@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 13:58:23
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-16 16:03:36
+ * @LastEditTime: 2020-04-16 16:57:01
  * @Description: 解析器
  * @Email: UvDream@163.com
  -->
@@ -30,6 +30,9 @@ export default {
       this.reviewHtml(this.content);
       setTimeout(() => {
         this.title = document.querySelectorAll("h1,h2,h3,h4,h5,h6");
+        // this.title.forEach(element => {
+        //   console.log(element.innerText)
+        // });
         this.$emit("input", this.title);
       }, 1000);
     }
