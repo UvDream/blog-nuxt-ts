@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-15 22:13:00
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-16 13:49:35
+ * @LastEditTime: 2020-04-16 15:10:03
  * @Description: 详情
  * @Email: UvDream@163.com
  -->
@@ -32,7 +32,8 @@
           </div>
           <!-- content -->
           <div class="detail-content-body-content" id="htmlView">
-            {{ articleContent.article_content }}
+            <!-- {{ articleContent.article_content }} -->
+            <JMark :content="articleContent.article_content" />
           </div>
         </div>
       </Col>
@@ -44,12 +45,12 @@
 </template>
 
 <script>
-import Vue from "vue";
 import JAuth from "../components/auth/index.vue";
 import Article from "../api/article/index";
 import JIcon from "../components/icon/index.vue";
-
-export default Vue.extend({
+const JMark = () =>
+  import("../components/vditor/index.vue").then(m => m.default);
+export default {
   props: {},
   data() {
     return {
@@ -64,40 +65,17 @@ export default Vue.extend({
   mounted() {
     this.form.id = String(this.$route.query.id);
     this.getDetail(this.form);
-    // Vditor.preview(
-    //   document.getElementById("htmlView"),
-    //   this.articleContent.article_content,
-    //   {
-    //     speech: {
-    //       enable: true
-    //     },
-    //     anchor: true,
-    //     hljs: {
-    //       enable: true,
-    //       lineNumber: true,
-    //       style: "native"
-    //     },
-    //     markdown: {
-    //       toc: true
-    //     },
-    //     transform: element => {
-    //       console.log("渲染之前回调");
-    //       return element;
-    //     }
-    //   }
-    // );
   },
   watch: {},
   methods: {
     getDetail(data) {
       Article.detail(data).then(res => {
-        console.log(res);
         res.code == 200 ? (this.articleContent = res.data) : "";
       });
     }
   },
-  components: { JAuth, JIcon }
-});
+  components: { JAuth, JIcon, JMark }
+};
 </script>
 
 <style scoped lang="less">
@@ -110,6 +88,7 @@ export default Vue.extend({
       padding: 1rem;
       background-color: var(--bgColor);
       border-radius: 10px;
+      box-shadow: 0 0 1rem rgba(161, 177, 204, 0.4);
       &-title {
         text-align: center;
         font-size: 2rem;
