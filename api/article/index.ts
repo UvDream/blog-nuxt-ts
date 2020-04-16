@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-15 20:33:43
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-15 20:59:47
+ * @LastEditTime: 2020-04-16 11:19:25
  * @Description:文章接口
  * @Email: UvDream@163.com
  */
@@ -13,6 +13,13 @@ const Article = {
       url: "/article/list",
       method: "POST",
       data
+    });
+  },
+  detail: (params?: Object) => {
+    return request({
+      url: "/article/detail",
+      method: "GET",
+      params
     });
   }
 };

@@ -2,12 +2,12 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-15 20:21:18
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-15 21:59:25
+ * @LastEditTime: 2020-04-16 11:28:27
  * @Description: 列表页面
  * @Email: UvDream@163.com
  -->
 <template>
-  <div class="list">
+  <div class="list" @click="listClick(data.ID)">
     <div class="list-title">{{ data.title }}</div>
     <div class="list-tag">
       <div>
@@ -44,7 +44,16 @@ export default Vue.extend({
   created() {},
   mounted() {},
   watch: {},
-  methods: {},
+  methods: {
+    listClick(id: Number) {
+      this.$router.push({
+        path: "/detail",
+        query: {
+          id: String(id)
+        }
+      });
+    }
+  },
   components: {
     JIcon
   }
