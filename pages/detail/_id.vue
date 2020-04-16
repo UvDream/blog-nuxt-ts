@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 16:18:32
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-16 16:26:57
+ * @LastEditTime: 2020-04-16 16:33:04
  * @Description: 
  * @Email: UvDream@163.com
  -->
@@ -44,7 +44,7 @@
           <AnchorLink href="#static_position" title="Static Position" />
           <AnchorLink href="#API" title="API">
             <AnchorLink href="#Anchor_props" title="Anchor props" />
-            <AnchorLink href="#Anchor_events" title="Anchor events" />
+            <AnchorLink href="#排序后去重" title="排序后去重" />
             <AnchorLink href="#AnchorLink_props" title="AnchorLink props" />
           </AnchorLink>
         </Anchor>
