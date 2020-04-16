@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-15 20:21:18
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-16 11:28:27
+ * @LastEditTime: 2020-04-16 16:27:38
  * @Description: 列表页面
  * @Email: UvDream@163.com
  -->
@@ -47,10 +47,7 @@ export default Vue.extend({
   methods: {
     listClick(id: Number) {
       this.$router.push({
-        path: "/detail",
-        query: {
-          id: String(id)
-        }
+        path: `/detail/${id}`
       });
     }
   },

@@ -33,9 +33,7 @@ export default Vue.extend({
   methods: {
     getList(data: Object) {
       Article.list(data).then((res: any) => {
-        console.log("h获取文章列表", res);
         res.code == 200 ? (this.list = res.data.article_list) : "";
-        console.log(this.list);
       });
     }
   },

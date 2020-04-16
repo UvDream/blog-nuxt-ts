@@ -1,9 +1,9 @@
 <!--
  * @Author: wangzhongjie
- * @Date: 2020-04-15 22:13:00
+ * @Date: 2020-04-16 16:18:32
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-16 15:10:03
- * @Description: 详情
+ * @LastEditTime: 2020-04-16 16:26:57
+ * @Description: 
  * @Email: UvDream@163.com
  -->
 <template>
@@ -31,55 +31,70 @@
             </div>
           </div>
           <!-- content -->
-          <div class="detail-content-body-content" id="htmlView">
+          <div class="detail-content-body-content">
             <!-- {{ articleContent.article_content }} -->
-            <JMark :content="articleContent.article_content" />
+            <JMark :content="articleContent.article_content" v-model="title" />
           </div>
         </div>
       </Col>
       <Col :xs="0" :sm="0" :md="7" :lg="5" :xl="4">
         <JAuth />
+        <Anchor>
+          <AnchorLink href="#basic_usage" title="Basic Usage" />
+          <AnchorLink href="#static_position" title="Static Position" />
+          <AnchorLink href="#API" title="API">
+            <AnchorLink href="#Anchor_props" title="Anchor props" />
+            <AnchorLink href="#Anchor_events" title="Anchor events" />
+            <AnchorLink href="#AnchorLink_props" title="AnchorLink props" />
+          </AnchorLink>
+        </Anchor>
       </Col>
     </Row>
   </div>
 </template>
 
-<script>
-import JAuth from "../components/auth/index.vue";
-import Article from "../api/article/index";
-import JIcon from "../components/icon/index.vue";
+<script lang="ts">
+import Vue from "vue";
+import JAuth from "../../components/auth/index.vue";
+import Article from "../../api/article/index";
+import JIcon from "../../components/icon/index.vue";
 const JMark = () =>
-  import("../components/vditor/index.vue").then(m => m.default);
-export default {
+  import("../../components/vditor/index.vue").then(m => m.default);
+export default Vue.extend({
   props: {},
   data() {
     return {
       form: {
         id: ""
       },
-      articleContent: ""
+      articleContent: "",
+      title: ""
     };
   },
   computed: {},
   created() {},
   mounted() {
-    this.form.id = String(this.$route.query.id);
+    this.form.id = String(this.$route.params.id);
     this.getDetail(this.form);
   },
   watch: {},
   methods: {
-    getDetail(data) {
+    getDetail(data: Object) {
       Article.detail(data).then(res => {
         res.code == 200 ? (this.articleContent = res.data) : "";
       });
     }
   },
-  components: { JAuth, JIcon, JMark }
-};
+  components: {
+    JAuth,
+    JIcon,
+    JMark
+  }
+});
 </script>
 
 <style scoped lang="less">
-@import url("../styles/theme.less");
+@import url("../../styles/theme.less");
 .detail {
   &-content {
     padding: 0 0.5rem;

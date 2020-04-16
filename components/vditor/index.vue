@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 13:58:23
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-16 15:09:38
+ * @LastEditTime: 2020-04-16 16:03:36
  * @Description: 解析器
  * @Email: UvDream@163.com
  -->
@@ -19,16 +19,30 @@ export default {
     content: ""
   },
   data() {
-    return {};
+    return {
+      title: []
+    };
   },
   computed: {},
   created() {},
   mounted() {
     if (process.client) {
       this.reviewHtml(this.content);
+      setTimeout(() => {
+        this.title = document.querySelectorAll("h1,h2,h3,h4,h5,h6");
+        this.$emit("input", this.title);
+      }, 1000);
     }
   },
-  watch: {},
+  watch: {
+    allHtml: {
+      handler(val, old) {},
+      deep: true
+    },
+    content: function(val) {
+      this.reviewHtml(val);
+    }
+  },
   methods: {
     reviewHtml(data) {
       require("vditor").preview(document.getElementById("htmlView"), data, {
@@ -43,14 +57,14 @@ export default {
         },
         markdown: {
           toc: true
-        },
-        transform: element => {
-          //   console.log("渲染之前回调");
-          return element;
         }
       });
     }
   },
+  updated() {
+    console.log("update");
+  },
+
   components: {}
 };
 </script>
