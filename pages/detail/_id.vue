@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 16:18:32
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-16 16:46:19
+ * @LastEditTime: 2020-04-16 21:08:22
  * @Description: 
  * @Email: UvDream@163.com
  -->
@@ -10,6 +10,7 @@
   <div class="detail">
     <Row type="flex" justify="center">
       <Col :xs="24" :sm="24" :md="16" :lg="18" :xl="14" class="detail-content">
+        <Spin size="large" fix v-if="spinShow"></Spin>
         <div class="detail-content-body">
           <!-- title -->
           <div class="detail-content-body-title">
@@ -39,7 +40,7 @@
       </Col>
       <Col :xs="0" :sm="0" :md="7" :lg="5" :xl="4">
         <JAuth />
-       <JAnchor :data="title" />
+        <JAnchor :data="title" />
       </Col>
     </Row>
   </div>
@@ -50,7 +51,7 @@ import Vue from "vue";
 import JAuth from "../../components/auth/index.vue";
 import Article from "../../api/article/index";
 import JIcon from "../../components/icon/index.vue";
-import JAnchor from "../../components/title-anchor/index.vue"
+import JAnchor from "../../components/title-anchor/index.vue";
 const JMark = () =>
   import("../../components/vditor/index.vue").then(m => m.default);
 export default Vue.extend({
@@ -61,7 +62,8 @@ export default Vue.extend({
         id: ""
       },
       articleContent: "",
-      title: ""
+      title: "",
+      spinShow: true
     };
   },
   computed: {},
@@ -70,12 +72,12 @@ export default Vue.extend({
     this.form.id = String(this.$route.params.id);
     this.getDetail(this.form);
   },
-  watch: {
-  },
+  watch: {},
   methods: {
     getDetail(data: Object) {
-      Article.detail(data).then(res => {
+      Article.detail(data).then((res: any) => {
         res.code == 200 ? (this.articleContent = res.data) : "";
+        res.code == 200 ? (this.spinShow = false) : (this.spinShow = true);
       });
     }
   },
@@ -91,6 +93,7 @@ export default Vue.extend({
 <style scoped lang="less">
 @import url("../../styles/theme.less");
 .detail {
+  background-color: var(--bgColor);
   &-content {
     padding: 0 0.5rem;
     &-body {

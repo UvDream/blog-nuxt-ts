@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 13:58:23
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-16 16:57:01
+ * @LastEditTime: 2020-04-16 20:43:12
  * @Description: 解析器
  * @Email: UvDream@163.com
  -->
@@ -72,4 +72,30 @@ export default {
 };
 </script>
 
-<style scoped lang="less"></style>
+<style scoped lang="less">
+@import url("../../styles/theme.less");
+/deep/h1 {
+  color: var(--themeColor);
+  border-bottom: 1px solid var(--themeColor);
+}
+/deep/h2 {
+  color: var(--themeColor);
+  border-bottom: none;
+  position: relative;
+  /deep/ &::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: -10px;
+    width: 5px;
+    height: 20px;
+    background-color: var(--themeColor);
+  }
+}
+/deep/h3,
+/deep/h4,
+/deep/h5,
+/deep/h6 {
+  color: var(--themeColor);
+}
+</style>
