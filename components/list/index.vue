@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-15 20:21:18
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-16 16:27:38
+ * @LastEditTime: 2020-04-17 14:37:53
  * @Description: 列表页面
  * @Email: UvDream@163.com
  -->
@@ -84,6 +84,10 @@ export default Vue.extend({
   &-tag {
     display: flex;
     padding: 0 0.5rem;
+     color: var(--textColor);
+     span{
+       color:var(--textColor)!important;
+     }
     & > div {
       margin-right: 1rem;
     }
