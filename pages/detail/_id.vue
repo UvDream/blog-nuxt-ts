@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 16:18:32
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-16 21:08:22
+ * @LastEditTime: 2020-04-17 09:54:13
  * @Description: 
  * @Email: UvDream@163.com
  -->
@@ -10,7 +10,6 @@
   <div class="detail">
     <Row type="flex" justify="center">
       <Col :xs="24" :sm="24" :md="16" :lg="18" :xl="14" class="detail-content">
-        <Spin size="large" fix v-if="spinShow"></Spin>
         <div class="detail-content-body">
           <!-- title -->
           <div class="detail-content-body-title">
@@ -63,7 +62,6 @@ export default Vue.extend({
       },
       articleContent: "",
       title: "",
-      spinShow: true
     };
   },
   computed: {},
@@ -77,7 +75,6 @@ export default Vue.extend({
     getDetail(data: Object) {
       Article.detail(data).then((res: any) => {
         res.code == 200 ? (this.articleContent = res.data) : "";
-        res.code == 200 ? (this.spinShow = false) : (this.spinShow = true);
       });
     }
   },
@@ -96,6 +93,7 @@ export default Vue.extend({
   background-color: var(--bgColor);
   &-content {
     padding: 0 0.5rem;
+    background-color: var(--bgColor);
     &-body {
       width: 100%;
       padding: 1rem;

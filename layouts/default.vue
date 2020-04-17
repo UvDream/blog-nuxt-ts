@@ -3,6 +3,11 @@
     <JMenus />
     <nuxt />
     <JFooter />
+      <BackTop  :bottom="80" :right="35">
+        <div class="top">
+          <j-icon type="huidaodingbu"></j-icon>
+        </div>
+    </BackTop>
     <div class="main-theme">
       <Poptip v-model="visible" width="85">
         <JIcon
