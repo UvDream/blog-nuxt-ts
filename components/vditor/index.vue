@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 13:58:23
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-16 20:43:12
+ * @LastEditTime: 2020-04-20 21:33:19
  * @Description: 解析器
  * @Email: UvDream@163.com
  -->
@@ -97,5 +97,16 @@ export default {
 /deep/h5,
 /deep/h6 {
   color: var(--themeColor);
+}
+/deep/p,
+/deep/ol {
+  color: var(--textColor);
+}
+/deep/img {
+  width: 100%;
+}
+/deep/iframe {
+  width: 100%;
+  height: 40rem;
 }
 </style>
