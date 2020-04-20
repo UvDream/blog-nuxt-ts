@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 16:18:32
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-20 21:54:52
+ * @LastEditTime: 2020-04-20 22:00:01
  * @Description: 
  * @Email: UvDream@163.com
  -->
@@ -83,12 +83,14 @@ export default Vue.extend({
   created() {},
   mounted() {
     this.form.id = String(this.$route.params.id);
+    // 获取初始化数据
     this.getDetail(this.form);
   },
   watch: {},
   methods: {
     getDetail(data: Object) {
       Article.detail(data).then((res: any) => {
+        // 获取
         res.code == 200 ? (this.articleContent = res.data) : "";
         res.code == 200 ? (this.spinShow = false) : (this.spinShow = true);
       });
