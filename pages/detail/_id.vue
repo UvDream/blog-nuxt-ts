@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 16:18:32
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-20 21:32:41
+ * @LastEditTime: 2020-04-20 21:54:52
  * @Description: 
  * @Email: UvDream@163.com
  -->
@@ -56,13 +56,26 @@ const JMark = () =>
   import("../../components/vditor/index.vue").then(m => m.default);
 export default Vue.extend({
   props: {},
+  head() {
+    return {
+      title: this.articleContent.title + "-汪中杰的个人博客",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "汪中杰的个人博客"
+        }
+      ],
+      noscript: [{ innerHTML: "请使用谷歌浏览器浏览", body: true }]
+    };
+  },
   data() {
     return {
       form: {
         id: ""
       },
-      articleContent: "",
       title: "",
+      articleContent: "",
       spinShow: true
     };
   },
@@ -81,6 +94,7 @@ export default Vue.extend({
       });
     }
   },
+
   components: {
     JAuth,
     JIcon,
