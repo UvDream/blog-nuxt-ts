@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 16:18:32
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-21 10:56:57
+ * @LastEditTime: 2020-04-21 11:18:22
  * @Description: 
  * @Email: UvDream@163.com
  -->
@@ -57,7 +57,7 @@ export default Vue.extend({
   props: {},
   head() {
     return {
-      title: this.articleContent.title + "-汪中杰的个人博客",
+      title: (this as any).articleContent.title + "-汪中杰的个人博客",
       meta: [
         {
           hid: "description",
@@ -81,16 +81,16 @@ export default Vue.extend({
   computed: {},
   created() {},
   mounted() {
-    this.form.id = String(this.$route.params.id);
+      (this as any).form.id = String(this.$route.params.id);
     // 获取初始化数据
-    this.getDetail(this.form);
+    (this as any).getDetail((this as any).form);
   },
   watch: {},
   methods: {
     getDetail(data: Object) {
       Article.detail(data).then((res: any) => {
         // 获取
-        res.code == 200 ? (this.articleContent = res.data) : "";
+        res.code == 200 ? ((this as any).articleContent = res.data) : "";
       });
     }
   },

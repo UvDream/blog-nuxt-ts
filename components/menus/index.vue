@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-13 21:47:16
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-21 10:56:46
+ * @LastEditTime: 2020-04-21 11:08:11
  * @Description:菜单
  * @Email: UvDream@163.com
  -->
@@ -44,11 +44,7 @@ export default {
   &-logo {
     font-size: 20px;
     margin-left: 1rem;
-<<<<<<< HEAD
     cursor: default;
-=======
-    cursor: pointer;
->>>>>>> 86140cd233e9f244fb883b9e562d946afe337520
   }
 }
 </style>
