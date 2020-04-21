@@ -2,13 +2,13 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-14 11:21:23
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-15 16:46:33
+ * @LastEditTime: 2020-04-21 17:10:38
  * @Description: 信息栏
  * @Email: UvDream@163.com
  -->
 <template>
   <div class="auth">
-    <img src="http://118.25.110.93:81/images/avatar.jpeg" alt />
+    <img src="https://www.uvdream.cn/images/avatar.jpeg" alt />
     <div>让技术产生价值</div>
     <!-- <Divider>社交账号</Divider> -->
     <j-divider>社交账号</j-divider>
