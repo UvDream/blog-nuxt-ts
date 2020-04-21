@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 16:43:04
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-16 21:12:53
+ * @LastEditTime: 2020-04-20 20:37:00
  * @Description: 文章目录
  * @Email: UvDream@163.com
  -->
@@ -37,8 +37,7 @@
 </template>
 
 <script>
-import Vue from "vue";
-export default Vue.extend({
+export default {
   props: {
     data: {
       default: []
@@ -59,8 +58,8 @@ export default Vue.extend({
     data: function(params) {
       let h1Index = 0;
       let h2Index = 0;
+      let obj = { title: "", children: [] };
       params.forEach((element, index) => {
-        let obj = { title: "", children: [] };
         if (element.nodeName == "H1") {
           obj = { title: element.innerText, children: [] };
           this.titleArr.push(obj);
@@ -68,14 +67,19 @@ export default Vue.extend({
         }
         if (element.nodeName == "H2") {
           obj = { title: element.innerText, children: [] };
-          this.titleArr[h1Index].children.push(obj);
-          h2Index = this.titleArr[h1Index].children.length - 1;
+          this.titleArr[h1Index]
+            ? this.titleArr[h1Index].children.push(obj)
+            : null;
+          this.titleArr[h1Index]
+            ? (h2Index = this.titleArr[h1Index].children.length - 1)
+            : null;
         }
         if (element.nodeName == "H3") {
           console.log(element.innerText);
           obj = { title: element.innerText, children: [] };
-          console.log(obj);
-          this.titleArr[h1Index].children[h2Index].children.push(obj);
+          this.titleArr[h1Index].children[h2Index]
+            ? this.titleArr[h1Index].children[h2Index].children.push(obj)
+            : null;
         }
       });
       console.log("全新的数组");
@@ -84,7 +88,7 @@ export default Vue.extend({
   },
   methods: {},
   components: {}
-});
+};
 </script>
 
 <style scoped lang="less">

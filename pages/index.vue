@@ -32,6 +32,14 @@ export default Vue.extend({
       noData:false
     };
   },
+  head() {
+    return {
+      title: "首页-汪中杰的个人博客",
+      meta: [
+        { hid: "description", name: "description", content: "汪中杰的个人博客" }
+      ]
+    };
+  },
   mounted() {
     this.getList(this.form);
   },
