@@ -67,9 +67,9 @@ export default Vue.extend({
   },
   methods: {
     themeChange(id: number) {
-      this.themeId = id;
-
-      changeTheme(id);
+       (this as any).themeId = id;
+        changeTheme(id);
+       (this as any).visible = !(this as any).visible;
     }
   }
 });
