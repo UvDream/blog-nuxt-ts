@@ -2,20 +2,21 @@
   <div class="body">
     <!-- 菜单 -->
     <JMenus />
-    <div class="body-main">
-      <nuxt />
-      <!-- 底部 -->
-      <JFooter />
-    </div>
-
-    <!-- 手机导航栏 -->
-    <JMobile />
-    <!-- 回到顶部 -->
-    <BackTop :bottom="80" :right="35">
+    <!-- <div class="body-main" ref="markdownBody"> -->
+    <nuxt />
+    <!-- 底部 -->
+    <JFooter />
+    <BackTop :bottom="80" :right="20" target="">
       <div class="top">
         <j-icon type="huidaodingbu"></j-icon>
       </div>
     </BackTop>
+    <!-- </div> -->
+
+    <!-- 手机导航栏 -->
+    <JMobile />
+    <!-- 回到顶部 -->
+
     <!-- 主题切换 -->
     <div class="body-theme">
       <Poptip v-model="visible" width="85">
@@ -98,7 +99,6 @@ html {
   margin: 0;
   background-color: var(--grayBgColor);
   height: 100%;
-  overflow: hidden;
 }
 html {
   font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -123,8 +123,8 @@ html {
     text-align: center;
     line-height: 30px;
     border: 1px solid var(--borderColor);
-    bottom: 50px;
-    right: 33px;
+    bottom: 55px;
+    right: 20px;
     &-tip {
       cursor: default;
       background-color: var(--bgColor);
@@ -132,24 +132,6 @@ html {
         height: 30px;
         line-height: 30px;
       }
-    }
-  }
-  @media screen and (max-width: 767px) {
-    &-main {
-      position: absolute;
-      width: 100%;
-      top: 50px;
-      height: ~"calc(100% - 100px)";
-      overflow: auto;
-    }
-  }
-  @media screen and (min-width: 768px) {
-    &-main {
-      position: absolute;
-      width: 100%;
-      top: 50px;
-      height: ~"calc(100% - 50px)";
-      overflow: auto;
     }
   }
 }

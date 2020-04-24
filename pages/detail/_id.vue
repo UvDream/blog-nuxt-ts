@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 16:18:32
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-24 15:30:49
+ * @LastEditTime: 2020-04-24 15:50:43
  * @Description: 
  * @Email: UvDream@163.com
  -->
@@ -116,6 +116,7 @@ export default Vue.extend({
 <style scoped lang="less">
 @import url("../../styles/theme.less");
 .detail {
+  margin-top: 50px;
   background-color: var(--grayBgColor);
   &-content {
     padding: 0 0.5rem;

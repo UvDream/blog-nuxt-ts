@@ -73,7 +73,7 @@ export default Vue.extend({
   background-color: var(--grayBgColor);
   width: 100%;
   // height: 100%;
-  overflow: auto;
+  margin: 50px 0;
   &-list {
     padding: 0 0.5rem;
   }
