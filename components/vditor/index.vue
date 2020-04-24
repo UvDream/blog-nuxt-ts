@@ -2,18 +2,18 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 13:58:23
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-20 21:33:19
+ * @LastEditTime: 2020-04-24 08:52:32
  * @Description: 解析器
  * @Email: UvDream@163.com
  -->
 <template>
   <div>
-    <div id="htmlView"></div>
+    <div id="htmlView" class="htmlView"></div>
   </div>
 </template>
 
 <script>
-import "vditor/dist/index.css";
+import "../../styles/vditor.css";
 export default {
   props: {
     content: ""
@@ -108,5 +108,8 @@ export default {
 /deep/iframe {
   width: 100%;
   height: 40rem;
+}
+.htmlView {
+  padding: 1rem 1.5rem;
 }
 </style>

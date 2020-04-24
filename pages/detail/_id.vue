@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 16:18:32
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-21 14:30:55
+ * @LastEditTime: 2020-04-24 08:52:25
  * @Description: 
  * @Email: UvDream@163.com
  -->
@@ -55,11 +55,13 @@ const JMark = () =>
   import("../../components/vditor/index.vue").then(m => m.default);
 export default Vue.extend({
   props: {},
-   watchQuery: ['page'],
+  watchQuery: ["page"],
   key: to => to.fullPath,
-  transition (to, from) {
-    if (!from) { return 'slide-left' }
-    return +to.query.page < +from.query.page ? 'slide-right' : 'slide-left'
+  transition(to, from) {
+    if (!from) {
+      return "slide-left";
+    }
+    return +to.query.page < +from.query.page ? "slide-right" : "slide-left";
   },
   head() {
     return {
@@ -87,8 +89,8 @@ export default Vue.extend({
   computed: {},
   created() {},
   mounted() {
-      // (this as any).$nuxt.$loading.start()
-      (this as any).form.id = String(this.$route.params.id);
+    // (this as any).$nuxt.$loading.start()
+    (this as any).form.id = String(this.$route.params.id);
     // 获取初始化数据
     (this as any).getDetail((this as any).form);
   },
@@ -135,6 +137,9 @@ export default Vue.extend({
         & > div {
           margin-right: 0.5rem;
         }
+      }
+      &-content {
+        margin-top: 1rem;
       }
     }
   }
