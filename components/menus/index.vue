@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-13 21:47:16
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-21 11:08:11
+ * @LastEditTime: 2020-04-24 15:09:05
  * @Description:菜单
  * @Email: UvDream@163.com
  -->
@@ -24,11 +24,11 @@ export default {
   data() {
     return {};
   },
-  methods:{
-    logClick(){
+  methods: {
+    logClick() {
       this.$router.push({
-        path:"/"
-      })
+        path: "/"
+      });
     }
   }
 };
@@ -41,6 +41,10 @@ export default {
   height: 50px;
   line-height: 50px;
   box-shadow: 0 0 1rem rgba(161, 177, 204, 0.4);
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  top: 0;
   &-logo {
     font-size: 20px;
     margin-left: 1rem;

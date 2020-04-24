@@ -1,10 +1,13 @@
 <template>
-  <div class="main">
+  <div class="body">
     <!-- 菜单 -->
     <JMenus />
-    <nuxt />
-    <!-- 底部 -->
-    <JFooter />
+    <div class="body-main">
+      <nuxt />
+      <!-- 底部 -->
+      <JFooter />
+    </div>
+
     <!-- 手机导航栏 -->
     <JMobile />
     <!-- 回到顶部 -->
@@ -14,7 +17,7 @@
       </div>
     </BackTop>
     <!-- 主题切换 -->
-    <div class="main-theme">
+    <div class="body-theme">
       <Poptip v-model="visible" width="85">
         <JIcon
           type="zhuti"
@@ -22,7 +25,7 @@
           @click="visiable = !visible"
           padding="8px 8px"
         />
-        <div slot="content" class="main-theme-tip">
+        <div slot="content" class="body-theme-tip">
           <div
             v-for="(item, index) in themeList"
             :key="index"
@@ -97,6 +100,7 @@ html {
   margin: 0;
   background-color: var(--grayBgColor);
   height: 100%;
+  overflow: hidden;
 }
 html {
   font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -107,9 +111,10 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
-  background-color: #f5f5f5;
 }
-.main {
+.body {
+  // overflow: hidden;
+  height: 100%;
   &-theme {
     box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12),
       0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
@@ -132,6 +137,28 @@ html {
       }
     }
   }
+  @media screen and (max-width: 767px) {
+    &-main {
+      position: absolute;
+      width: 100%;
+      top: 50px;
+      height: ~"calc(100% - 100px)";
+      overflow: auto;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    &-main {
+      position: absolute;
+      width: 100%;
+      top: 50px;
+      height: ~"calc(100% - 50px)";
+      overflow: auto;
+    }
+  }
+}
+#__nuxt,
+#__layout {
+  height: 100%;
 }
 .ivu-poptip-body {
   border-radius: 4px;

@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 16:18:32
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-24 08:52:25
+ * @LastEditTime: 2020-04-24 15:30:49
  * @Description: 
  * @Email: UvDream@163.com
  -->
@@ -121,6 +121,7 @@ export default Vue.extend({
     padding: 0 0.5rem;
     background-color: var(--grayBgColor);
     &-body {
+      margin-top: 1rem;
       width: 100%;
       padding: 1rem;
       background-color: var(--bgColor);

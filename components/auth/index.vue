@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-14 11:21:23
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-21 17:10:38
+ * @LastEditTime: 2020-04-24 15:30:09
  * @Description: 信息栏
  * @Email: UvDream@163.com
  -->
@@ -66,6 +66,7 @@ export default {
   color: var(--textColor);
   border: 1px solid var(--borderColor);
   font-size: 16px;
+  margin-top: 1rem;
   img {
     width: 100px;
     height: 100px;

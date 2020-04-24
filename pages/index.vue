@@ -29,7 +29,7 @@ export default Vue.extend({
         page_size: "10"
       },
       list: [],
-      noData:false
+      noData: false
     };
   },
   head() {
@@ -44,19 +44,19 @@ export default Vue.extend({
     this.getList(this.form);
   },
   methods: {
-    moreData(){
-      this.form.page=String(Number(this.form.page)+1)
-      console.log(this.form)
+    moreData() {
+      this.form.page = String(Number(this.form.page) + 1);
+      console.log(this.form);
       this.getList(this.form);
     },
     getList(data: Object) {
       Article.list(data).then((res: any) => {
         // res.code == 200 ? (this.list=this.list.concat(res.data.article_list)) : "";
-        if(res.code==200 ){
-          if(res.data.article_list.length){
-            this.list=this.list.concat(res.data.article_list)
-          }else{
-            this.noData=true
+        if (res.code == 200) {
+          if (res.data.article_list.length) {
+            this.list = this.list.concat(res.data.article_list);
+          } else {
+            this.noData = true;
           }
         }
       });
@@ -72,10 +72,12 @@ export default Vue.extend({
 .main {
   background-color: var(--grayBgColor);
   width: 100%;
+  // height: 100%;
+  overflow: auto;
   &-list {
     padding: 0 0.5rem;
   }
-  &-more{
+  &-more {
     height: 40px;
     display: flex;
     justify-content: center;
@@ -85,8 +87,9 @@ export default Vue.extend({
     border-radius: 8px;
     cursor: pointer;
     box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12),
-    0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+      0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
     color: var(--textColor);
+    margin-bottom: 1rem;
   }
 }
 </style>
