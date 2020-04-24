@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-24 13:34:43
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-24 14:50:31
+ * @LastEditTime: 2020-04-24 16:46:31
  * @Description: 手机底部导航栏
  * @Email: UvDream@163.com
  -->
@@ -74,13 +74,15 @@ export default Vue.extend({
   display: flex;
   position: fixed;
   bottom: 0;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background-color: var(--bgColor);
   &-tab {
     width: 25%;
     text-align: center;
     -moz-user-select: none;
     -khtml-user-select: none;
     user-select: none;
-    background-color: var(--bgColor);
     padding-top: 5px;
     .icon {
       color: var(--textColor);
