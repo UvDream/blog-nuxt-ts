@@ -92,9 +92,7 @@ export default Vue.extend({
 </style>
 <style lang="less">
 @import url("../styles/theme.less");
-.ivu-poptip-popper {
-  min-width: 80px;
-}
+
 body,
 html {
   margin: 0;
@@ -113,7 +111,6 @@ html {
   box-sizing: border-box;
 }
 .body {
-  // overflow: hidden;
   height: 100%;
   &-theme {
     box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12),
@@ -165,6 +162,9 @@ html {
   background-color: var(--bgColor);
   box-sizing: border-box;
   border: 1px solid var(--borderColor);
+}
+.ivu-poptip-popper {
+  min-width: 80px;
 }
 .ivu-poptip-arrow:after {
   border-top-color: var(--bgColor) !important;

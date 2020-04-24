@@ -89,7 +89,7 @@ export default Vue.extend({
     box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12),
       0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
     color: var(--textColor);
-    margin-bottom: 1rem;
+    margin: 1rem 0;
   }
 }
 </style>
