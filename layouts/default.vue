@@ -1,13 +1,19 @@
 <template>
   <div class="main">
+    <!-- 菜单 -->
     <JMenus />
     <nuxt />
+    <!-- 底部 -->
     <JFooter />
+    <!-- 手机导航栏 -->
+    <JMobile />
+    <!-- 回到顶部 -->
     <BackTop :bottom="80" :right="35">
       <div class="top">
         <j-icon type="huidaodingbu"></j-icon>
       </div>
     </BackTop>
+    <!-- 主题切换 -->
     <div class="main-theme">
       <Poptip v-model="visible" width="85">
         <JIcon
@@ -38,6 +44,7 @@ import { iconfontUrl, iconfontVersion } from "../config/env";
 import { loadStyle, changeTheme } from "../util/util";
 import JIcon from "../components/icon/index.vue";
 import Vue from "vue";
+import JMobile from "../components/menus/mobile.vue";
 export default Vue.extend({
   data() {
     return {
@@ -63,7 +70,8 @@ export default Vue.extend({
   components: {
     JMenus,
     JFooter,
-    JIcon
+    JIcon,
+    JMobile
   },
   methods: {
     themeChange(id: number) {
