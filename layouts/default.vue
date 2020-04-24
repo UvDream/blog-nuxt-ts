@@ -3,16 +3,16 @@
     <JMenus />
     <nuxt />
     <JFooter />
-      <BackTop  :bottom="80" :right="35">
-        <div class="top">
-          <j-icon type="huidaodingbu"></j-icon>
-        </div>
+    <BackTop :bottom="80" :right="35">
+      <div class="top">
+        <j-icon type="huidaodingbu"></j-icon>
+      </div>
     </BackTop>
     <div class="main-theme">
       <Poptip v-model="visible" width="85">
         <JIcon
           type="zhuti"
-          size="20"
+          size="15"
           @click="visiable = !visible"
           padding="8px 8px"
         />
@@ -67,9 +67,9 @@ export default Vue.extend({
   },
   methods: {
     themeChange(id: number) {
-       (this as any).themeId = id;
-        changeTheme(id);
-       (this as any).visible = !(this as any).visible;
+      (this as any).themeId = id;
+      changeTheme(id);
+      (this as any).visible = !(this as any).visible;
     }
   }
 });
@@ -107,14 +107,14 @@ html {
       0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
     position: fixed;
     background-color: var(--bgColor);
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     text-align: center;
-    line-height: 50px;
+    line-height: 30px;
     border: 1px solid var(--borderColor);
-    bottom: 20px;
-    right: 20px;
+    bottom: 50px;
+    right: 33px;
     &-tip {
       cursor: default;
       background-color: var(--bgColor);
