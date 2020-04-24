@@ -6,9 +6,9 @@
     <nuxt />
     <!-- 底部 -->
     <JFooter />
-    <BackTop :bottom="80" :right="20" target="">
+    <BackTop :bottom="55" :right="20" target="">
       <div class="top">
-        <j-icon type="huidaodingbu"></j-icon>
+        <j-icon type="huidaodingbu" size="38"></j-icon>
       </div>
     </BackTop>
     <!-- </div> -->
@@ -117,13 +117,13 @@ html {
       0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
     position: fixed;
     background-color: var(--bgColor);
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     text-align: center;
-    line-height: 30px;
+    line-height: 40px;
     border: 1px solid var(--borderColor);
-    bottom: 55px;
+    bottom: 110px;
     right: 20px;
     &-tip {
       cursor: default;
@@ -135,6 +135,7 @@ html {
     }
   }
 }
+
 #__nuxt,
 #__layout {
   height: 100%;
