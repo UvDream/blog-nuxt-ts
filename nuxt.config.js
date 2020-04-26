@@ -20,7 +20,7 @@ export default {
   */
   loading: { color: '#2d8cf0' },
   manifest: {
-    lang: "zh"
+    lang: "zh-CN"
   },
   /*
   ** Global CSS
