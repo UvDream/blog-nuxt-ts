@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-13 21:47:16
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-20 20:43:52
+ * @LastEditTime: 2020-04-24 15:09:05
  * @Description:菜单
  * @Email: UvDream@163.com
  -->
@@ -10,7 +10,7 @@
   <div class="menus">
     <Row type="flex" justify="center" align="middle">
       <Col :xs="21" :sm="21" :md="10" :lg="15" :xl="12">
-        <span class="menus-logo" @click="toHome">
+        <span class="menus-logo" @click="logClick">
           U世界的V梦想
         </span>
       </Col>
@@ -25,7 +25,7 @@ export default {
     return {};
   },
   methods: {
-    toHome() {
+    logClick() {
       this.$router.push({
         path: "/"
       });
@@ -41,10 +41,14 @@ export default {
   height: 50px;
   line-height: 50px;
   box-shadow: 0 0 1rem rgba(161, 177, 204, 0.4);
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  top: 0;
   &-logo {
     font-size: 20px;
     margin-left: 1rem;
-    cursor: pointer;
+    cursor: default;
   }
 }
 </style>

@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 16:18:32
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-20 22:00:01
+ * @LastEditTime: 2020-04-26 10:48:49
  * @Description: 
  * @Email: UvDream@163.com
  -->
@@ -10,7 +10,6 @@
   <div class="detail">
     <Row type="flex" justify="center">
       <Col :xs="24" :sm="24" :md="16" :lg="18" :xl="14" class="detail-content">
-        <Spin size="large" fix v-if="spinShow"></Spin>
         <div class="detail-content-body">
           <!-- title -->
           <div class="detail-content-body-title">
@@ -56,9 +55,17 @@ const JMark = () =>
   import("../../components/vditor/index.vue").then(m => m.default);
 export default Vue.extend({
   props: {},
+  watchQuery: ["page"],
+  key: to => to.fullPath,
+  transition(to, from) {
+    if (!from) {
+      return "slide-left";
+    }
+    return +to.query.page < +from.query.page ? "slide-right" : "slide-left";
+  },
   head() {
     return {
-      title: this.articleContent.title + "-汪中杰的个人博客",
+      title: (this as any).articleContent.title + "-汪中杰的个人博客",
       meta: [
         {
           hid: "description",
@@ -82,17 +89,17 @@ export default Vue.extend({
   computed: {},
   created() {},
   mounted() {
-    this.form.id = String(this.$route.params.id);
+    // (this as any).$nuxt.$loading.start()
+    (this as any).form.id = String(this.$route.params.id);
     // 获取初始化数据
-    this.getDetail(this.form);
+    (this as any).getDetail((this as any).form);
   },
   watch: {},
   methods: {
     getDetail(data: Object) {
       Article.detail(data).then((res: any) => {
         // 获取
-        res.code == 200 ? (this.articleContent = res.data) : "";
-        res.code == 200 ? (this.spinShow = false) : (this.spinShow = true);
+        res.code == 200 ? ((this as any).articleContent = res.data) : "";
       });
     }
   },
@@ -109,12 +116,15 @@ export default Vue.extend({
 <style scoped lang="less">
 @import url("../../styles/theme.less");
 .detail {
+  margin-top: 50px;
   background-color: var(--grayBgColor);
   &-content {
     padding: 0 0.5rem;
+    background-color: var(--grayBgColor);
     &-body {
+      margin-top: 1rem;
       width: 100%;
-      padding: 1rem;
+      padding: 0.5rem;
       background-color: var(--bgColor);
       border-radius: 10px;
       box-shadow: 0 0 1rem rgba(161, 177, 204, 0.4);
@@ -129,6 +139,9 @@ export default Vue.extend({
         & > div {
           margin-right: 0.5rem;
         }
+      }
+      &-content {
+        margin-top: 1rem;
       }
     }
   }

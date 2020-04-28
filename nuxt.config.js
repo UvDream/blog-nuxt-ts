@@ -18,7 +18,10 @@ export default {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: { color: '#2d8cf0' },
+  manifest: {
+    lang: "zh-CN"
+  },
   /*
   ** Global CSS
   */

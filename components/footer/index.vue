@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-14 11:09:01
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-15 22:01:10
+ * @LastEditTime: 2020-04-24 15:13:10
  * @Description: 底部
  * @Email: UvDream@163.com
  -->
@@ -37,5 +37,6 @@ export default {
   background-color: var(--grayBgColor);
   text-align: center;
   color: var(--textColor);
+  margin-bottom: 50px;
 }
 </style>
