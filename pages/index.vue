@@ -58,12 +58,13 @@ export default Vue.extend({
   },
   methods: {
     moreData(id: number) {
+      console.log(Math.ceil(this.totalPage/Number(this.form.page_size))<=Number(this.form.page))
       if (id === 1) {
         if (this.form.page != "1") {
           this.form.page = String(Number(this.form.page) - 1);
           this.getList(this.form);
         }
-      } else if (id === 2) {
+      } else if (id === 2 && Math.ceil(this.totalPage/Number(this.form.page_size))>Number(this.form.page)  ) {
         this.form.page = String(Number(this.form.page) + 1);
         this.getList(this.form);
       }
@@ -74,15 +75,7 @@ export default Vue.extend({
         if (res.code == 200) {
           this.show = true;
           this.totalPage=res.data.totalSize
-          if (res.data.article_list.length === 0) {
-             this.$Notice.warning({
-                    title: '警告',
-                    desc:'没有更多数据了! '
-                });
-            this.form.page = String(Number(this.form.page) - 1);
-          } else {
-            this.list = res.data.article_list;
-          }
+          this.list = res.data.article_list;
         }
       });
     }
