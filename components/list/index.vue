@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-15 20:21:18
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-24 15:29:53
+ * @LastEditTime: 2020-04-29 11:37:03
  * @Description: 列表页面
  * @Email: UvDream@163.com
  -->
@@ -11,15 +11,15 @@
     <div class="list-title">{{ data.title }}</div>
     <div class="list-tag">
       <div>
-        <JIcon type="rili" size="10" />
+        <JIcon type="rili" size="12" />
         {{ data.add_time }}
       </div>
       <div>
-        <JIcon type="biaoqian" size="10" />
+        <JIcon :type="data.icon" :color="data.icon_color" size="12" />
         {{ data.type_name }}
       </div>
       <div>
-        <JIcon type="fangwenliang" size="10" />
+        <JIcon type="fangwenliang" size="12" />
         {{ data.view_count }}
       </div>
     </div>
@@ -42,7 +42,9 @@ export default Vue.extend({
   },
   computed: {},
   created() {},
-  mounted() {},
+  mounted() {
+    console.log(this.data)
+  },
   watch: {},
   methods: {
     listClick(id: Number) {
@@ -84,10 +86,8 @@ export default Vue.extend({
   &-tag {
     display: flex;
     padding: 0 0.5rem;
+    align-items: center;
     color: var(--textColor);
-    span {
-      color: var(--textColor) !important;
-    }
     & > div {
       margin-right: 1rem;
     }
