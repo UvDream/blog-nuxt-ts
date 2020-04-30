@@ -34,6 +34,7 @@ export default {
   */
   plugins: [
     {src:'@/plugins/iview',ssr:true},
+    {src:"@/plugins/outline",ssr:true}
   ],
   /*
   ** Nuxt.js dev-modules

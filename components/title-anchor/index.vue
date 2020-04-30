@@ -2,38 +2,29 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 16:43:04
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-20 20:37:00
+ * @LastEditTime: 2020-04-30 15:47:19
  * @Description: 文章目录
  * @Email: UvDream@163.com
  -->
 <template>
-  <div>
+  <Affix :offset-top="50">
     <Anchor show-ink class="anchor">
       <AnchorLink
-        v-for="(item, index) in titleArr"
-        :key="index"
+        v-for="item in data"
+        :key="item.id"
         :href="'#' + item.title"
         :title="item.title"
       >
         <AnchorLink
-          v-show="item.children.length > 0"
-          v-for="(items, indexs) in item.children"
-          :key="indexs"
-          :href="'#' + items.title"
-          :title="items.title"
-        >
-          <AnchorLink
-            v-show="items.children.length > 0"
-            v-for="(i, id) in items.children"
-            :key="id"
-            :href="'#' + i.title"
-            :title="i.title"
-          >
-          </AnchorLink>
-        </AnchorLink>
+          v-show="item.children"
+          v-for="j in item.children"
+          :key="j.id"
+          :href="'#' + j.title"
+          :title="j.title"
+        ></AnchorLink>
       </AnchorLink>
     </Anchor>
-  </div>
+  </Affix>
 </template>
 
 <script>
@@ -55,36 +46,7 @@ export default {
     this.titleArr = Array.from(this.data);
   },
   watch: {
-    data: function(params) {
-      let h1Index = 0;
-      let h2Index = 0;
-      let obj = { title: "", children: [] };
-      params.forEach((element, index) => {
-        if (element.nodeName == "H1") {
-          obj = { title: element.innerText, children: [] };
-          this.titleArr.push(obj);
-          h1Index = this.titleArr.length - 1;
-        }
-        if (element.nodeName == "H2") {
-          obj = { title: element.innerText, children: [] };
-          this.titleArr[h1Index]
-            ? this.titleArr[h1Index].children.push(obj)
-            : null;
-          this.titleArr[h1Index]
-            ? (h2Index = this.titleArr[h1Index].children.length - 1)
-            : null;
-        }
-        if (element.nodeName == "H3") {
-          console.log(element.innerText);
-          obj = { title: element.innerText, children: [] };
-          this.titleArr[h1Index].children[h2Index]
-            ? this.titleArr[h1Index].children[h2Index].children.push(obj)
-            : null;
-        }
-      });
-      console.log("全新的数组");
-      console.log(this.titleArr);
-    }
+   
   },
   methods: {},
   components: {}
@@ -94,6 +56,14 @@ export default {
 <style scoped lang="less">
 @import url("../../styles/theme.less");
 .anchor {
+  width: 100%;
+  background-color: var(--bgColor);
+  border-radius: 10px;
+  box-shadow: 0 0 1rem rgba(161, 177, 204, 0.4);
+  padding: 20px;
+  color: var(--textColor);
+  border: 1px solid var(--borderColor);
+  font-size: 16px;
   margin-top: 1rem;
 }
 </style>

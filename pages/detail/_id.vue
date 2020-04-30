@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 16:18:32
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-26 10:48:49
+ * @LastEditTime: 2020-04-30 15:41:07
  * @Description: 
  * @Email: UvDream@163.com
  -->
@@ -33,13 +33,25 @@
           <!-- content -->
           <div class="detail-content-body-content">
             <!-- {{ articleContent.article_content }} -->
-            <JMark :content="articleContent.article_content" v-model="title" />
+            <div
+              v-outline="{
+                callback: refreshNavTree,
+                selectors: ['h1', 'h2', 'h3'],
+                exceptSelector: '[un-nav]'
+              }"
+              class="content"
+            >
+              <JMark
+                :content="articleContent.article_content"
+                v-model="title"
+              />
+            </div>
           </div>
         </div>
       </Col>
       <Col :xs="0" :sm="0" :md="7" :lg="5" :xl="4">
         <JAuth />
-        <JAnchor :data="title" />
+        <JAnchor :data="navTree" />
       </Col>
     </Row>
   </div>
@@ -57,12 +69,12 @@ export default Vue.extend({
   props: {},
   watchQuery: ["page"],
   key: to => to.fullPath,
-  transition(to, from) {
-    if (!from) {
-      return "slide-left";
-    }
-    return +to.query.page < +from.query.page ? "slide-right" : "slide-left";
-  },
+  // transition(to, from) {
+  //   if (!from) {
+  //     return "slide-left";
+  //   }
+  //   return +to.query.page < +from.query.page ? "slide-right" : "slide-left";
+  // },
   head() {
     return {
       title: (this as any).articleContent.title + "-汪中杰的个人博客",
@@ -83,7 +95,8 @@ export default Vue.extend({
       },
       title: "",
       articleContent: "",
-      spinShow: true
+      spinShow: true,
+      navTree: []
     };
   },
   computed: {},
@@ -96,6 +109,19 @@ export default Vue.extend({
   },
   watch: {},
   methods: {
+    refreshNavTree(treeData: any) {
+      (this as any).navTree = treeData;
+    },
+    jumpToAnchor(id: any) {
+      let element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+          inline: "nearest"
+        });
+      }
+    },
     getDetail(data: Object) {
       Article.detail(data).then((res: any) => {
         // 获取
