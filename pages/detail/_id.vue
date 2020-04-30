@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 16:18:32
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-30 15:41:07
+ * @LastEditTime: 2020-04-30 15:51:44
  * @Description: 
  * @Email: UvDream@163.com
  -->
@@ -42,6 +42,7 @@
               class="content"
             >
               <JMark
+              v-if="articleContent.article_content"
                 :content="articleContent.article_content"
                 v-model="title"
               />
