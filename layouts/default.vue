@@ -6,7 +6,7 @@
     <nuxt />
     <!-- 底部 -->
     <JFooter />
-    <BackTop :bottom="55" :right="20" target="">
+    <BackTop :bottom="55" :right="20" target>
       <div class="top">
         <j-icon type="huidaodingbu" size="38"></j-icon>
       </div>
@@ -20,21 +20,14 @@
     <!-- 主题切换 -->
     <div class="body-theme">
       <Poptip v-model="visible" width="85">
-        <JIcon
-          type="zhuti"
-          size="15"
-          @click="visiable = !visible"
-          padding="8px 8px"
-        />
+        <JIcon type="zhuti" size="15" @click="visiable = !visible" padding="8px 8px" />
         <div slot="content" class="body-theme-tip">
           <div
             v-for="(item, index) in themeList"
             :key="index"
             :class="{ active: themeId == item.id }"
             @click="themeChange(item.id)"
-          >
-            {{ item.name }}
-          </div>
+          >{{ item.name }}</div>
         </div>
       </Poptip>
     </div>
@@ -70,6 +63,18 @@ export default Vue.extend({
     iconfontVersion.forEach((ele: any) => {
       loadStyle(iconfontUrl.replace("$key", ele));
     });
+    (function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    let s:any = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+    })();
     console.log(`
 ██╗   ██╗██╗   ██╗██████╗ ██████╗ ███████╗ █████╗ ███╗   ███╗
 ██║   ██║██║   ██║██╔══██╗██╔══██╗██╔════╝██╔══██╗████╗ ████║
