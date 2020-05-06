@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-14 13:57:46
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-15 16:05:03
+ * @LastEditTime: 2020-05-06 11:13:07
  * @Description:
  * @Email: UvDream@163.com
  */
@@ -35,4 +35,21 @@ export const changeTheme = (id: number) => {
     document.body.style.setProperty("--grayBgColor", "#000");
     document.body.style.setProperty("--borderColor", "#544d4d");
   }
+};
+
+/*
+ *百度收录
+ */
+export const bdSearch = () => {
+  (function() {
+    var bp = document.createElement("script");
+    var curProtocol = window.location.protocol.split(":")[0];
+    if (curProtocol === "https") {
+      bp.src = "https://zz.bdstatic.com/linksubmit/push.js";
+    } else {
+      bp.src = "http://push.zhanzhang.baidu.com/push.js";
+    }
+    let s: any = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
 };

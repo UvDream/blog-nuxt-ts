@@ -28,6 +28,7 @@ import JList from "../components/list/index.vue";
 import Article from "../api/article/index";
 import JSkeleton from "../components/skeleton/index.vue";
 import JIcon from "../components/icon/index.vue";
+import {bdSearch} from "../util/util";
 export default Vue.extend({
   data() {
     return {
@@ -55,6 +56,7 @@ export default Vue.extend({
   },
   mounted() {
     this.getList(this.form);
+    bdSearch();
   },
   methods: {
     moreData(id: number) {
