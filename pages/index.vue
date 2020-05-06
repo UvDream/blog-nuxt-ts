@@ -2,12 +2,7 @@
   <div class="main">
     <Row type="flex" justify="center">
       <Col :xs="24" :sm="24" :md="16" :lg="18" :xl="14" class="main-list">
-        <JList
-          v-for="(item, index) in list"
-          :key="index"
-          :data="item"
-          v-show="show"
-        />
+        <JList v-for="(item, index) in list" :key="index" :data="item" v-show="show" />
         <JSkeleton :num="10" v-show="!show" />
         <div class="main-more">
           <span @click="moreData(1)">
@@ -42,14 +37,19 @@ export default Vue.extend({
       },
       list: [],
       show: false,
-      totalPage:0
+      totalPage: 0
     };
   },
   head() {
     return {
       title: "首页-汪中杰的个人博客",
       meta: [
-        { hid: "description", name: "description", content: "汪中杰的个人博客" }
+        {
+          hid: "description",
+          name: "description",
+          content: "汪中杰的个人博客"
+        },
+        { name: "baidu-site-verification", content: "0u8q1FxahW" }
       ]
     };
   },
@@ -58,13 +58,20 @@ export default Vue.extend({
   },
   methods: {
     moreData(id: number) {
-      console.log(Math.ceil(this.totalPage/Number(this.form.page_size))<=Number(this.form.page))
+      console.log(
+        Math.ceil(this.totalPage / Number(this.form.page_size)) <=
+          Number(this.form.page)
+      );
       if (id === 1) {
         if (this.form.page != "1") {
           this.form.page = String(Number(this.form.page) - 1);
           this.getList(this.form);
         }
-      } else if (id === 2 && Math.ceil(this.totalPage/Number(this.form.page_size))>Number(this.form.page)  ) {
+      } else if (
+        id === 2 &&
+        Math.ceil(this.totalPage / Number(this.form.page_size)) >
+          Number(this.form.page)
+      ) {
         this.form.page = String(Number(this.form.page) + 1);
         this.getList(this.form);
       }
@@ -74,7 +81,7 @@ export default Vue.extend({
       Article.list(data).then((res: any) => {
         if (res.code == 200) {
           this.show = true;
-          this.totalPage=res.data.totalSize
+          this.totalPage = res.data.totalSize;
           this.list = res.data.article_list;
         }
       });
