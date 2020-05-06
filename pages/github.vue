@@ -2,12 +2,12 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-24 14:33:47
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-24 14:42:18
+ * @LastEditTime: 2020-05-06 15:14:39
  * @Description: 开源项目
  * @Email: UvDream@163.com
  -->
 <template>
-  <div>我的开源</div>
+  <div class="open">暂无内容,敬请期待!</div>
 </template>
 
 <script lang="ts">
@@ -26,4 +26,8 @@ export default Vue.extend({
 });
 </script>
 
-<style scoped lang="less"></style>
+<style scoped lang="less">
+.open{
+  margin: 50px 0;
+}
+</style>
