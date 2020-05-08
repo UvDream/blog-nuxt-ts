@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-15 20:21:18
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-29 11:37:03
+ * @LastEditTime: 2020-05-08 17:15:14
  * @Description: 列表页面
  * @Email: UvDream@163.com
  -->
@@ -42,9 +42,7 @@ export default Vue.extend({
   },
   computed: {},
   created() {},
-  mounted() {
-    console.log(this.data)
-  },
+  mounted() {},
   watch: {},
   methods: {
     listClick(id: Number) {

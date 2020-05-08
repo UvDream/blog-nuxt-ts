@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 16:18:32
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-05-06 11:17:32
+ * @LastEditTime: 2020-05-08 16:58:28
  * @Description: 
  * @Email: UvDream@163.com
  -->
@@ -42,7 +42,7 @@
               class="content"
             >
               <JMark
-              v-if="articleContent.article_content"
+                v-if="articleContent.article_content"
                 :content="articleContent.article_content"
                 v-model="title"
               />
@@ -66,7 +66,7 @@ import JIcon from "../../components/icon/index.vue";
 import JAnchor from "../../components/title-anchor/index.vue";
 const JMark = () =>
   import("../../components/vditor/index.vue").then(m => m.default);
-import {bdSearch} from "../../util/util";
+import { bdSearch } from "../../util/util";
 
 export default Vue.extend({
   props: {},
@@ -109,7 +109,7 @@ export default Vue.extend({
     (this as any).form.id = String(this.$route.params.id);
     // 获取初始化数据
     (this as any).getDetail((this as any).form);
-    bdSearch()
+    bdSearch();
   },
   watch: {},
   methods: {
