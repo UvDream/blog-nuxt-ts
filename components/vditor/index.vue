@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 13:58:23
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-24 08:52:32
+ * @LastEditTime: 2020-05-09 10:48:01
  * @Description: 解析器
  * @Email: UvDream@163.com
  -->
@@ -103,7 +103,9 @@ export default {
   color: var(--textColor);
 }
 /deep/img {
-  width: 100%;
+  // width: 100%;
+  display: block;
+  margin: 0 auto;
 }
 /deep/iframe {
   width: 100%;
