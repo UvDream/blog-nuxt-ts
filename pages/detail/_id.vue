@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 16:18:32
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-05-08 16:58:28
+ * @LastEditTime: 2020-05-09 11:35:02
  * @Description: 
  * @Email: UvDream@163.com
  -->
@@ -115,16 +115,7 @@ export default Vue.extend({
   methods: {
     refreshNavTree(treeData: any) {
       (this as any).navTree = treeData;
-    },
-    jumpToAnchor(id: any) {
-      let element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-          inline: "nearest"
-        });
-      }
+      console.log(treeData);
     },
     getDetail(data: Object) {
       Article.detail(data).then((res: any) => {
