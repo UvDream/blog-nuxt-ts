@@ -61,7 +61,6 @@ export default {
 </script>
 
 <style scoped lang="less">
-@import url("../../styles/theme.less");
 .footer {
   padding: 20px 0px;
   background-color: var(--grayBgColor);

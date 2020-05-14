@@ -94,7 +94,6 @@ export default Vue.extend({
 </script>
 
 <style lang="less" scoped>
-@import url("../styles/theme.less");
 
 .main {
   background-color: var(--grayBgColor);

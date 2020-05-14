@@ -94,7 +94,6 @@ export default {
 </script>
 
 <style scoped lang="less">
-@import url("../../styles/theme.less");
 /deep/h1 {
   color: var(--themeColor);
   border-bottom: 1px solid var(--themeColor);

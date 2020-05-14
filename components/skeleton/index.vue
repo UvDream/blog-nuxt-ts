@@ -38,7 +38,6 @@ export default {
 </script>
 
 <style scoped lang="less">
-@import url("../../styles/theme.less");
 .skeleton {
   width: 100%;
   margin-top: 1rem;

@@ -67,7 +67,6 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="less">
-@import url("../../styles/theme.less");
 .moblie {
   width: 100%;
   height: 50px;

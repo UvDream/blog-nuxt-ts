@@ -54,7 +54,6 @@ export default {
 </script>
 
 <style scoped lang="less">
-@import url("../../styles/theme.less");
 .anchor {
   width: 100%;
   background-color: var(--bgColor);

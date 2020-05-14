@@ -95,7 +95,6 @@ export default Vue.extend({
 }
 </style>
 <style lang="less">
-@import url("../styles/theme.less");
 
 body,
 html {

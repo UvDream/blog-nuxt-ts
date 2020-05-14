@@ -51,7 +51,6 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="less">
-@import url("../styles/theme.less");
 .about {
   margin: 60px 0;
   padding: 20px;

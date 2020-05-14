@@ -58,7 +58,6 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="less">
-@import url("../../styles/theme.less");
 .list {
   width: 100%;
   border: 1px solid var(--borderColor);

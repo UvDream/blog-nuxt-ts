@@ -55,7 +55,6 @@ export default {
 </script>
 
 <style scoped lang="less">
-@import url("../../styles/theme.less");
 .auth {
   text-align: center;
   width: 100%;
