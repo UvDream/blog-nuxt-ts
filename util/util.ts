@@ -2,10 +2,12 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-14 13:57:46
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-05-06 11:13:07
+ * @LastEditTime: 2020-05-14 09:59:42
  * @Description:
  * @Email: UvDream@163.com
  */
+import { lightTheme, darkTheme } from "./var-theme";
+import cssVars from "css-vars-ponyfill";
 /**
  * 动态插入css
  */
@@ -21,20 +23,13 @@ export const loadStyle = (url: any) => {
 /**
  * 切换主题
  */
-export const changeTheme = (id: number) => {
-  if (id == 1) {
-    // 默认主题
-    document.body.style.setProperty("--bgColor", "#fff");
-    document.body.style.setProperty("--textColor", "#000");
-    document.body.style.setProperty("--grayBgColor", "#f5f5f5");
-    document.body.style.setProperty("--borderColor", "#fff");
-  } else if (id == 2) {
-    // 暗黑
-    document.body.style.setProperty("--bgColor", "#000");
-    document.body.style.setProperty("--textColor", "#fff");
-    document.body.style.setProperty("--grayBgColor", "#000");
-    document.body.style.setProperty("--borderColor", "#544d4d");
-  }
+export const changeTheme = (theme: boolean) => {
+  document.documentElement.setAttribute("data-theme", theme ? "light" : "dark");
+  cssVars({
+    watch: true, // 当添加，删除或修改其<link>或<style>元素的禁用或href属性时，ponyfill将自行调用
+    variables: theme ? lightTheme : darkTheme, // variables 自定义属性名/值对的集合
+    onlyLegacy: false // false  默认将css变量编译为浏览器识别的css样式  true 当浏览器不支持css变量的时候将css变量编译为识别的css
+  });
 };
 
 /*

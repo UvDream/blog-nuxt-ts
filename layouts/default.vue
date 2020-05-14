@@ -47,6 +47,7 @@ export default Vue.extend({
     return {
       visible: false,
       themeId: 1,
+      theme:true,
       themeList: [
         {
           id: 1,
@@ -60,6 +61,7 @@ export default Vue.extend({
     };
   },
   mounted() {
+    changeTheme(true)
     iconfontVersion.forEach((ele: any) => {
       loadStyle(iconfontUrl.replace("$key", ele));
     });
@@ -81,9 +83,8 @@ export default Vue.extend({
   },
   methods: {
     themeChange(id: number) {
-      (this as any).themeId = id;
-      changeTheme(id);
-      (this as any).visible = !(this as any).visible;
+      id==1?this.theme=true:this.theme=false
+      changeTheme(this.theme);
     }
   }
 });
