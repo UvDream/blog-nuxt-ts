@@ -115,7 +115,6 @@ export default Vue.extend({
   methods: {
     refreshNavTree(treeData: any) {
       (this as any).navTree = treeData;
-      console.log(treeData);
     },
     getDetail(data: Object) {
       Article.detail(data).then((res: any) => {

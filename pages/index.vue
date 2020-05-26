@@ -60,10 +60,7 @@ export default Vue.extend({
   },
   methods: {
     moreData(id: number) {
-      console.log(
-        Math.ceil(this.totalPage / Number(this.form.page_size)) <=
-          Number(this.form.page)
-      );
+  
       if (id === 1) {
         if (this.form.page != "1") {
           this.form.page = String(Number(this.form.page) - 1);

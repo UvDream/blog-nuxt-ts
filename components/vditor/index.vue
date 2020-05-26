@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 13:58:23
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-05-14 08:57:43
+ * @LastEditTime: 2020-05-26 11:43:10
  * @Description: 解析器
  * @Email: UvDream@163.com
  -->
@@ -46,7 +46,17 @@ export default {
         newDiv.style.position = 'absolute';
         newDiv.style.left = '-99999px';
         body_element.appendChild(newDiv);
+
+ if(event.target.value){
+          console.log("代码---------------------------------")
+          let c=document.createElement("pre")
+          c.innerHTML=event.target.value
+          newDiv.appendChild(c);
+        }else{
         newDiv.appendChild(selection.getRangeAt(0).cloneContents());
+        }
+
+
         if (selection.getRangeAt(0).commonAncestorContainer.nodeName == "PRE") {
             newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
         }
