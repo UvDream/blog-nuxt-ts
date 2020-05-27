@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 16:18:32
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-05-14 10:04:14
+ * @LastEditTime: 2020-05-27 11:30:41
  * @Description: 
  * @Email: UvDream@163.com
  -->
@@ -33,6 +33,8 @@
           <!-- content -->
           <div class="detail-content-body-content">
             <!-- {{ articleContent.article_content }} -->
+            <div style="width:0;height:0;overflow:hidden" v-html="articleContent.article_html"></div>
+
             <div
               v-outline="{
                 callback: refreshNavTree,
