@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 16:18:32
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-05-27 11:30:41
+ * @LastEditTime: 2020-05-28 15:50:28
  * @Description: 
  * @Email: UvDream@163.com
  -->
@@ -112,9 +112,13 @@ export default Vue.extend({
     // 获取初始化数据
     (this as any).getDetail((this as any).form);
     bdSearch();
+    (this as any).viewCount({id: String(this.$route.params.id)})
   },
   watch: {},
   methods: {
+    viewCount(data:Object){
+      Article.count(data)
+    },
     refreshNavTree(treeData: any) {
       (this as any).navTree = treeData;
     },

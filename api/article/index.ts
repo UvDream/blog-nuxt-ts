@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-15 20:33:43
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-05-08 16:58:11
+ * @LastEditTime: 2020-05-28 15:44:39
  * @Description:文章接口
  * @Email: UvDream@163.com
  */
@@ -25,6 +25,13 @@ const Article = {
   view: (params: object) => {
     return request({
       url: "/other/viewCount",
+      method: "GET",
+      params
+    });
+  },
+  count: (params: Object) => {
+    return request({
+      url: "/article/view",
       method: "GET",
       params
     });
