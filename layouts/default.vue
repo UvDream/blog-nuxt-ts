@@ -6,7 +6,7 @@
     <nuxt />
     <!-- 底部 -->
     <JFooter />
-    <BackTop :bottom="55" :right="20" target="">
+    <BackTop :bottom="55" :right="20" target>
       <div class="top">
         <j-icon type="huidaodingbu" size="38"></j-icon>
       </div>
@@ -20,21 +20,14 @@
     <!-- 主题切换 -->
     <div class="body-theme">
       <Poptip v-model="visible" width="85">
-        <JIcon
-          type="zhuti"
-          size="15"
-          @click="visiable = !visible"
-          padding="8px 8px"
-        />
+        <JIcon type="zhuti" size="15" @click="visiable = !visible" padding="8px 8px" />
         <div slot="content" class="body-theme-tip">
           <div
             v-for="(item, index) in themeList"
             :key="index"
             :class="{ active: themeId == item.id }"
             @click="themeChange(item.id)"
-          >
-            {{ item.name }}
-          </div>
+          >{{ item.name }}</div>
         </div>
       </Poptip>
     </div>
@@ -54,6 +47,7 @@ export default Vue.extend({
     return {
       visible: false,
       themeId: 1,
+      theme:true,
       themeList: [
         {
           id: 1,
@@ -67,6 +61,7 @@ export default Vue.extend({
     };
   },
   mounted() {
+    changeTheme(true)
     iconfontVersion.forEach((ele: any) => {
       loadStyle(iconfontUrl.replace("$key", ele));
     });
@@ -88,9 +83,8 @@ export default Vue.extend({
   },
   methods: {
     themeChange(id: number) {
-      (this as any).themeId = id;
-      changeTheme(id);
-      (this as any).visible = !(this as any).visible;
+      id==1?this.theme=true:this.theme=false
+      changeTheme(this.theme);
     }
   }
 });
@@ -101,7 +95,6 @@ export default Vue.extend({
 }
 </style>
 <style lang="less">
-@import url("../styles/theme.less");
 
 body,
 html {

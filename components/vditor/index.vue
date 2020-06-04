@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 13:58:23
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-24 08:52:32
+ * @LastEditTime: 2020-05-26 13:33:31
  * @Description: 解析器
  * @Email: UvDream@163.com
  -->
@@ -36,6 +36,43 @@ export default {
         this.$emit("input", this.title);
       }, 1000);
     }
+
+    document.addEventListener("copy", event => {
+      if (typeof window.getSelection == "undefined") return;
+      let body_element = document.getElementsByTagName("body")[0];
+      let selection = window.getSelection();
+      if (("" + selection).length < 30) return;
+      let newDiv = document.createElement("div");
+      newDiv.style.position = "absolute";
+      newDiv.style.left = "-99999px";
+      body_element.appendChild(newDiv);
+
+      if (event.target.value) {
+        console.log("代码---------------------------------");
+        let c = document.createElement("pre");
+        c.innerHTML = event.target.value;
+        newDiv.appendChild(c);
+      } else {
+        newDiv.appendChild(selection.getRangeAt(0).cloneContents());
+      }
+
+      if (selection.getRangeAt(0).commonAncestorContainer.nodeName == "PRE") {
+        newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+      }
+      // 添加text
+      // newDiv.innerHTML += "<br />\r\n原文地址："+ document.location.href + "\r\n &copy; Feiniaomy.com";
+      newDiv.innerHTML +=
+        "<br />原文地址: <a href='" +
+        document.location.href +
+        "'>" +
+        document.location.href +
+        "</a> &copy; https://www.UvDream.cn";
+      selection.selectAllChildren(newDiv);
+      // 链接
+      window.setTimeout(function() {
+        body_element.removeChild(newDiv);
+      }, 200);
+    });
   },
   watch: {
     allHtml: {
@@ -73,7 +110,6 @@ export default {
 </script>
 
 <style scoped lang="less">
-@import url("../../styles/theme.less");
 /deep/h1 {
   color: var(--themeColor);
   border-bottom: 1px solid var(--themeColor);
@@ -103,7 +139,9 @@ export default {
   color: var(--textColor);
 }
 /deep/img {
-  width: 100%;
+  // width: 100%;
+  display: block;
+  margin: 0 auto;
 }
 /deep/iframe {
   width: 100%;

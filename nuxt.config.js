@@ -26,13 +26,15 @@ export default {
   ** Global CSS
   */
   css: [
-    'iview/dist/styles/iview.css'
+    'iview/dist/styles/iview.css',
+    '~/styles/common.less'
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
     {src:'@/plugins/iview',ssr:true},
+    {src:"@/plugins/outline",ssr:true}
   ],
   /*
   ** Nuxt.js dev-modules
@@ -48,7 +50,8 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    ['cookie-universal-nuxt', { alias: 'cookies' }],
   ],
   /*
   ** Axios module configuration

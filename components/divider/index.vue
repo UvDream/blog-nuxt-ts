@@ -29,7 +29,6 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="less">
-@import url("../../styles/theme.less");
 .divider {
   display: table;
   white-space: nowrap;

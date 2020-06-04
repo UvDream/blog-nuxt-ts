@@ -2,10 +2,16 @@
   <div class="main">
     <Row type="flex" justify="center">
       <Col :xs="24" :sm="24" :md="16" :lg="18" :xl="14" class="main-list">
-        <JList v-for="(item, index) in list" :key="index" :data="item" />
-        <div class="main-more" @click="moreData">
-          <span v-if="!noData">加载更多</span>
-          <span v-if="noData">没有更多数据了</span>
+        <JList v-for="(item, index) in list" :key="index" :data="item" v-show="show" />
+        <JSkeleton :num="10" v-show="!show" />
+        <div class="main-more">
+          <span @click="moreData(1)">
+            <JIcon type="fenye-shangyiye" size="18" @click="moreData(1)" />
+          </span>
+          <span>第{{ form.page }}页/共{{totalPage}}篇文章</span>
+          <span @click="moreData(2)">
+            <JIcon type="fenye-shangyiye1" size="18" @click="moreData(2)" />
+          </span>
         </div>
       </Col>
       <Col :xs="0" :sm="0" :md="7" :lg="5" :xl="4">
@@ -20,7 +26,9 @@ import Vue from "vue";
 import JAuth from "../components/auth/index.vue";
 import JList from "../components/list/index.vue";
 import Article from "../api/article/index";
-
+import JSkeleton from "../components/skeleton/index.vue";
+import JIcon from "../components/icon/index.vue";
+import {bdSearch} from "../util/util";
 export default Vue.extend({
   data() {
     return {
@@ -29,45 +37,60 @@ export default Vue.extend({
         page_size: "10"
       },
       list: [],
-      noData: false
+      show: false,
+      totalPage: 0
     };
   },
   head() {
     return {
       title: "首页-汪中杰的个人博客",
       meta: [
-        { hid: "description", name: "description", content: "汪中杰的个人博客" }
+        {
+          hid: "description",
+          name: "description",
+          content: "汪中杰的个人博客"
+        },
+        { name: "baidu-site-verification", content: "0u8q1FxahW" }
       ]
     };
   },
   mounted() {
     this.getList(this.form);
+    bdSearch();
   },
   methods: {
-    moreData() {
-      this.form.page = String(Number(this.form.page) + 1);
-      console.log(this.form);
-      this.getList(this.form);
+    moreData(id: number) {
+  
+      if (id === 1) {
+        if (this.form.page != "1") {
+          this.form.page = String(Number(this.form.page) - 1);
+          this.getList(this.form);
+        }
+      } else if (
+        id === 2 &&
+        Math.ceil(this.totalPage / Number(this.form.page_size)) >
+          Number(this.form.page)
+      ) {
+        this.form.page = String(Number(this.form.page) + 1);
+        this.getList(this.form);
+      }
     },
     getList(data: Object) {
+      this.show = false;
       Article.list(data).then((res: any) => {
-        // res.code == 200 ? (this.list=this.list.concat(res.data.article_list)) : "";
         if (res.code == 200) {
-          if (res.data.article_list.length) {
-            this.list = this.list.concat(res.data.article_list);
-          } else {
-            this.noData = true;
-          }
+          this.show = true;
+          this.totalPage = res.data.totalSize;
+          this.list = res.data.article_list;
         }
       });
     }
   },
-  components: { JAuth, JList }
+  components: { JAuth, JList, JSkeleton, JIcon }
 });
 </script>
 
 <style lang="less" scoped>
-@import url("../styles/theme.less");
 
 .main {
   background-color: var(--grayBgColor);
@@ -80,7 +103,8 @@ export default Vue.extend({
   &-more {
     height: 40px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 0 0.5rem;
     align-items: center;
     background-color: var(--bgColor);
     border: 1px solid var(--borderColor);
@@ -90,6 +114,9 @@ export default Vue.extend({
       0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
     color: var(--textColor);
     margin: 1rem 0;
+    span {
+      letter-spacing: 2px;
+    }
   }
 }
 </style>

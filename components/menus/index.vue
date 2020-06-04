@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-13 21:47:16
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-24 15:09:05
+ * @LastEditTime: 2020-05-15 09:40:32
  * @Description:菜单
  * @Email: UvDream@163.com
  -->
@@ -34,7 +34,6 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-@import url("../../styles/theme.less");
 .menus {
   margin-bottom: 10px;
   background-color: var(--bgColor);
@@ -49,6 +48,7 @@ export default {
     font-size: 20px;
     margin-left: 1rem;
     cursor: default;
+    color: var(--textColor);
   }
 }
 </style>

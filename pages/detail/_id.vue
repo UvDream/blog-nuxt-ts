@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 16:18:32
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-26 10:48:49
+ * @LastEditTime: 2020-05-28 15:50:28
  * @Description: 
  * @Email: UvDream@163.com
  -->
@@ -33,13 +33,28 @@
           <!-- content -->
           <div class="detail-content-body-content">
             <!-- {{ articleContent.article_content }} -->
-            <JMark :content="articleContent.article_content" v-model="title" />
+            <div style="width:0;height:0;overflow:hidden" v-html="articleContent.article_html"></div>
+
+            <div
+              v-outline="{
+                callback: refreshNavTree,
+                selectors: ['h1', 'h2', 'h3'],
+                exceptSelector: '[un-nav]'
+              }"
+              class="content"
+            >
+              <JMark
+                v-if="articleContent.article_content"
+                :content="articleContent.article_content"
+                v-model="title"
+              />
+            </div>
           </div>
         </div>
       </Col>
       <Col :xs="0" :sm="0" :md="7" :lg="5" :xl="4">
         <JAuth />
-        <JAnchor :data="title" />
+        <JAnchor :data="navTree" />
       </Col>
     </Row>
   </div>
@@ -53,16 +68,18 @@ import JIcon from "../../components/icon/index.vue";
 import JAnchor from "../../components/title-anchor/index.vue";
 const JMark = () =>
   import("../../components/vditor/index.vue").then(m => m.default);
+import { bdSearch } from "../../util/util";
+
 export default Vue.extend({
   props: {},
   watchQuery: ["page"],
   key: to => to.fullPath,
-  transition(to, from) {
-    if (!from) {
-      return "slide-left";
-    }
-    return +to.query.page < +from.query.page ? "slide-right" : "slide-left";
-  },
+  // transition(to, from) {
+  //   if (!from) {
+  //     return "slide-left";
+  //   }
+  //   return +to.query.page < +from.query.page ? "slide-right" : "slide-left";
+  // },
   head() {
     return {
       title: (this as any).articleContent.title + "-汪中杰的个人博客",
@@ -83,7 +100,8 @@ export default Vue.extend({
       },
       title: "",
       articleContent: "",
-      spinShow: true
+      spinShow: true,
+      navTree: []
     };
   },
   computed: {},
@@ -93,9 +111,17 @@ export default Vue.extend({
     (this as any).form.id = String(this.$route.params.id);
     // 获取初始化数据
     (this as any).getDetail((this as any).form);
+    bdSearch();
+    (this as any).viewCount({id: String(this.$route.params.id)})
   },
   watch: {},
   methods: {
+    viewCount(data:Object){
+      Article.count(data)
+    },
+    refreshNavTree(treeData: any) {
+      (this as any).navTree = treeData;
+    },
     getDetail(data: Object) {
       Article.detail(data).then((res: any) => {
         // 获取
@@ -114,7 +140,6 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="less">
-@import url("../../styles/theme.less");
 .detail {
   margin-top: 50px;
   background-color: var(--grayBgColor);
