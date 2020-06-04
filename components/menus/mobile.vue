@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-24 13:34:43
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-04-24 16:46:31
+ * @LastEditTime: 2020-06-04 20:19:15
  * @Description: 手机底部导航栏
  * @Email: UvDream@163.com
  -->
@@ -47,7 +47,7 @@ export default Vue.extend({
       activeID: 1,
       list: [
         { id: 1, name: "首 页", icon: "index", link: "/" },
-        { id: 2, name: "标 签", icon: "huabanfuben", link: "/tag" },
+        { id: 2, name: "常用资源", icon: "huabanfuben", link: "/tag" },
         { id: 3, name: "我的开源", icon: "github", link: "/github" },
         { id: 4, name: "关于我", icon: "wode", link: "/about" }
       ]
