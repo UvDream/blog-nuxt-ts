@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-24 14:36:04
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-06-04 20:55:50
+ * @LastEditTime: 2020-06-09 09:33:55
  * @Description: 我的标签
  * @Email: UvDream@163.com
  -->
@@ -60,6 +60,11 @@ export default Vue.extend({
              id:"1-2",
             title:"docsmall",desc:"图片压缩",url:"https://docsmall.com/",
             img:"https://cdn.docsmall.com/assets/img/33d17c9.png"
+          },
+          {
+             id:"1-3",
+            title:"codepen",desc:"在线代码编辑",url:"https://codepen.io/",
+            img:"https://gitee.com/Uvdream/images/raw/master/images/20200609093337.png"
           }
         ]
       }
