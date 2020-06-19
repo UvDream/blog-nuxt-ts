@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 16:43:04
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-06-19 16:34:04
+ * @LastEditTime: 2020-06-19 16:35:03
  * @Description: 文章目录
  * @Email: UvDream@163.com
  -->
@@ -94,6 +94,21 @@ export default {
   cursor: default;
   max-height: 500px;
   overflow: auto;
+}
+.anchor::-webkit-scrollbar {
+    width           : 7px;
+    height          : 7px;
+    background-color: #fff;
+}
+
+.anchor::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    background   : #ccc;
+}
+
+.anchor::-webkit-scrollbar-track {
+    border-radius: 2px;
+    background   : #fff;
 }
 .active {
   color: #2d8cf0!important;
