@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 16:43:04
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-06-19 15:58:24
+ * @LastEditTime: 2020-06-19 16:34:04
  * @Description: 文章目录
  * @Email: UvDream@163.com
  -->
@@ -92,6 +92,8 @@ export default {
   font-size: 16px;
   margin-top: 1rem;
   cursor: default;
+  max-height: 500px;
+  overflow: auto;
 }
 .active {
   color: #2d8cf0!important;
