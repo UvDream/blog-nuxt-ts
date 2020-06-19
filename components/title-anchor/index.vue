@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 16:43:04
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-06-19 15:39:33
+ * @LastEditTime: 2020-06-19 15:58:24
  * @Description: 文章目录
  * @Email: UvDream@163.com
  -->
@@ -56,10 +56,12 @@ export default {
   created() {},
   mounted() {
     this.titleArr = Array.from(this.data);
-    this.activeId =  this.titleArr[0]['id']
+    if(this.titleArr.length>0){
+      this.activeId =  this.titleArr[0]["id"]
+    }
   },
   watch: {
-   
+  
   },
   methods: {
     jumpToAnchor (id) {
