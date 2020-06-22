@@ -2,14 +2,14 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 16:18:32
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-05-28 15:50:28
+ * @LastEditTime: 2020-06-22 14:36:03
  * @Description: 
  * @Email: UvDream@163.com
  -->
 <template>
   <div class="detail">
     <Row type="flex" justify="center">
-      <Col :xs="24" :sm="24" :md="16" :lg="18" :xl="14" class="detail-content">
+      <Col :xs="24" :sm="24" :md="24" :lg="18" :xl="14" class="detail-content">
         <div class="detail-content-body">
           <!-- title -->
           <div class="detail-content-body-title">
@@ -52,7 +52,7 @@
           </div>
         </div>
       </Col>
-      <Col :xs="0" :sm="0" :md="7" :lg="5" :xl="4">
+      <Col :xs="0" :sm="0" :md="0" :lg="5" :xl="4">
         <JAuth />
         <JAnchor :data="navTree" />
       </Col>

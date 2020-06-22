@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <Row type="flex" justify="center">
-      <Col :xs="24" :sm="24" :md="16" :lg="18" :xl="14" class="main-list">
+      <Col :xs="24" :sm="24" :md="24" :lg="18" :xl="14" class="main-list">
         <div class="tag">
           <Tabs @on-click="tagClick">
             <TabPane label="全部" ></TabPane>
@@ -31,7 +31,7 @@
           </span>
         </div>
       </Col>
-      <Col :xs="0" :sm="0" :md="7" :lg="5" :xl="4">
+      <Col :xs="0" :sm="0" :md="0" :lg="5" :xl="4">
         <JAuth />
       </Col>
     </Row>
