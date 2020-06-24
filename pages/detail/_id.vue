@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 16:18:32
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-06-24 17:14:42
+ * @LastEditTime: 2020-06-24 17:16:34
  * @Description: 
  * @Email: UvDream@163.com
  -->
@@ -115,7 +115,9 @@ export default Vue.extend({
       title: "",
       articleContent: "",
       spinShow: true,
-      navTree: []
+      navTree: [],
+
+      titleArr: []
     };
   },
   computed: {},
@@ -123,6 +125,7 @@ export default Vue.extend({
   mounted() {
     // (this as any).$nuxt.$loading.start()
     (this as any).form.id = String(this.$route.params.id);
+
     // 获取初始化数据
     (this as any).getDetail((this as any).form);
     bdSearch();
