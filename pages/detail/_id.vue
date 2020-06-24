@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 16:18:32
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-06-22 14:36:03
+ * @LastEditTime: 2020-06-24 17:14:42
  * @Description: 
  * @Email: UvDream@163.com
  -->
@@ -11,12 +11,20 @@
     <Row type="flex" justify="center">
       <Col :xs="24" :sm="24" :md="24" :lg="18" :xl="14" class="detail-content">
         <div class="detail-content-body">
+          <SkeleTonDetail v-if="!articleContent.article_html" />
+
           <!-- title -->
-          <div class="detail-content-body-title">
+          <div
+            class="detail-content-body-title"
+            v-if="articleContent.article_html"
+          >
             {{ articleContent.title }}
           </div>
           <!-- tag -->
-          <div class="detail-content-body-tag">
+          <div
+            class="detail-content-body-tag"
+            v-if="articleContent.article_html"
+          >
             <div>
               <JIcon type="rili" size="10" />
               {{ articleContent.add_time }}
@@ -31,9 +39,15 @@
             </div>
           </div>
           <!-- content -->
-          <div class="detail-content-body-content">
+          <div
+            class="detail-content-body-content"
+            v-if="articleContent.article_html"
+          >
             <!-- {{ articleContent.article_content }} -->
-            <div style="width:0;height:0;overflow:hidden" v-html="articleContent.article_html"></div>
+            <div
+              style="width:0;height:0;overflow:hidden"
+              v-html="articleContent.article_html"
+            ></div>
 
             <div
               v-outline="{
@@ -69,7 +83,7 @@ import JAnchor from "../../components/title-anchor/index.vue";
 const JMark = () =>
   import("../../components/vditor/index.vue").then(m => m.default);
 import { bdSearch } from "../../util/util";
-
+import SkeleTonDetail from "../../components/skeleton/detail";
 export default Vue.extend({
   props: {},
   watchQuery: ["page"],
@@ -112,12 +126,12 @@ export default Vue.extend({
     // 获取初始化数据
     (this as any).getDetail((this as any).form);
     bdSearch();
-    (this as any).viewCount({id: String(this.$route.params.id)})
+    (this as any).viewCount({ id: String(this.$route.params.id) });
   },
   watch: {},
   methods: {
-    viewCount(data:Object){
-      Article.count(data)
+    viewCount(data: Object) {
+      Article.count(data);
     },
     refreshNavTree(treeData: any) {
       (this as any).navTree = treeData;
@@ -134,7 +148,8 @@ export default Vue.extend({
     JAuth,
     JIcon,
     JMark,
-    JAnchor
+    JAnchor,
+    SkeleTonDetail
   }
 });
 </script>
