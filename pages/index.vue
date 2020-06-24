@@ -1,20 +1,37 @@
 <template>
   <div class="main">
     <Row type="flex" justify="center">
-      <Col :xs="24" :sm="24" :md="16" :lg="18" :xl="14" class="main-list">
-        <JList v-for="(item, index) in list" :key="index" :data="item" v-show="show" />
+      <Col :xs="24" :sm="24" :md="24" :lg="18" :xl="14" class="main-list">
+        <div class="tag">
+          <Tabs @on-click="tagClick">
+            <TabPane label="全部" ></TabPane>
+            <TabPane
+              v-for="item in tagList"
+              :key="item.ID"
+              :label="item.type_name"
+            >
+          </TabPane>
+          </Tabs>
+        </div>
+
+        <JList
+          v-for="(item, index) in list"
+          :key="index"
+          :data="item"
+          v-show="show"
+        />
         <JSkeleton :num="10" v-show="!show" />
         <div class="main-more">
           <span @click="moreData(1)">
             <JIcon type="fenye-shangyiye" size="18" @click="moreData(1)" />
           </span>
-          <span>第{{ form.page }}页/共{{totalPage}}篇文章</span>
+          <span>第{{ form.page }}页/共{{ totalPage }}篇文章</span>
           <span @click="moreData(2)">
             <JIcon type="fenye-shangyiye1" size="18" @click="moreData(2)" />
           </span>
         </div>
       </Col>
-      <Col :xs="0" :sm="0" :md="7" :lg="5" :xl="4">
+      <Col :xs="0" :sm="0" :md="0" :lg="5" :xl="4">
         <JAuth />
       </Col>
     </Row>
@@ -28,17 +45,19 @@ import JList from "../components/list/index.vue";
 import Article from "../api/article/index";
 import JSkeleton from "../components/skeleton/index.vue";
 import JIcon from "../components/icon/index.vue";
-import {bdSearch} from "../util/util";
+import { bdSearch } from "../util/util";
 export default Vue.extend({
   data() {
     return {
       form: {
         page: "1",
-        page_size: "10"
+        page_size: "10",
+        type_id: ""
       },
       list: [],
       show: false,
-      totalPage: 0
+      totalPage: 0,
+      tagList: []
     };
   },
   head() {
@@ -57,10 +76,22 @@ export default Vue.extend({
   mounted() {
     this.getList(this.form);
     bdSearch();
+    this.getTag();
   },
   methods: {
+    tagClick(name: any) {
+      name==0?name="":""
+      this.form.type_id = String(name);
+      this.getList(this.form);
+    },
+    getTag() {
+      Article.tag().then((res: any) => {
+        if (res.code == 200) {
+          this.tagList = res.data;
+        }
+      });
+    },
     moreData(id: number) {
-  
       if (id === 1) {
         if (this.form.page != "1") {
           this.form.page = String(Number(this.form.page) - 1);
@@ -91,7 +122,16 @@ export default Vue.extend({
 </script>
 
 <style lang="less" scoped>
-
+/deep/.ivu-tabs-bar{
+  margin-bottom: 0;
+}
+.tag {
+  background-color: var(--bgColor);
+  box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12),
+    0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  margin: 10px 0;
+  border-radius: 8px;
+}
 .main {
   background-color: var(--grayBgColor);
   width: 100%;
