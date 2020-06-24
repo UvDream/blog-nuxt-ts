@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 13:58:23
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-05-26 13:33:31
+ * @LastEditTime: 2020-06-19 16:04:31
  * @Description: 解析器
  * @Email: UvDream@163.com
  -->
@@ -89,7 +89,7 @@ export default {
         speech: {
           enable: true
         },
-        anchor: true,
+        // anchor: true,
         hljs: {
           enable: true,
           lineNumber: true,

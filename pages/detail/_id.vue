@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 16:18:32
  * @LastEditors: PanBaoQuan
- * @LastEditTime: 2020-06-19 15:31:33
+ * @LastEditTime: 2020-06-24 09:43:04
  * @Description: 
  * @Email: UvDream@163.com
  -->
@@ -109,12 +109,9 @@ export default Vue.extend({
   computed: {},
   created() {},
   mounted() {
-    
-
     // (this as any).$nuxt.$loading.start()
     (this as any).form.id = String(this.$route.params.id);
    
-
     // 获取初始化数据
     (this as any).getDetail((this as any).form);
     bdSearch();
@@ -124,6 +121,7 @@ export default Vue.extend({
   methods: {
     viewCount(data:Object){
       Article.count(data)
+
     },
     refreshNavTree(treeData: any) {
       (this as any).navTree = treeData;
