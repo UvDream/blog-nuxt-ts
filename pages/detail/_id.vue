@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-16 16:18:32
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-06-24 17:16:34
+ * @LastEditTime: 2020-06-24 17:17:33
  * @Description: 
  * @Email: UvDream@163.com
  -->
@@ -83,7 +83,7 @@ import JAnchor from "../../components/title-anchor/index.vue";
 const JMark = () =>
   import("../../components/vditor/index.vue").then(m => m.default);
 import { bdSearch } from "../../util/util";
-import SkeleTonDetail from "../../components/skeleton/detail";
+import SkeleTonDetail from "../../components/skeleton/detail.vue";
 export default Vue.extend({
   props: {},
   watchQuery: ["page"],
