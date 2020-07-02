@@ -2,7 +2,7 @@
  * @Author: wangzhongjie
  * @Date: 2020-04-14 11:09:01
  * @LastEditors: wangzhongjie
- * @LastEditTime: 2020-05-08 17:18:34
+ * @LastEditTime: 2020-07-02 08:47:03
  * @Description: 底部
  * @Email: UvDream@163.com
  -->
@@ -40,7 +40,7 @@ export default {
     } else {
       this.$cookies.set("is_view", "true", {
         path: "/",
-        maxAge: 60 * 60 * 24 * 7
+        maxAge: 60 * 60 * 24 //一天
       });
       this.form.add = true;
     }
